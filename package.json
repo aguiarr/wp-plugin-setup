@@ -1,0 +1,8 @@
+{
+  "name": "wp-plugin-setup",
+  "version": "0.0.1",
+  "description": "Initial setup for wordpress plugin",
+  "repository": "https://github.com/aguiarr/wp-plugin-setup",
+  "author": "Matheus Aguiar",
+  "license": "GPL-3.0"
+}

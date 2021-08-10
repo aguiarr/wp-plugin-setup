@@ -1,0 +1,7 @@
+# ignore folders
+vendor/
+dist/
+node_modules/
+
+# ignore files
+*.lock
