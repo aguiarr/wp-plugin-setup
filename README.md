@@ -1,15 +1,14 @@
 # WP Plugin Setup
 
 ## Installing the dependencies
-**Isntall the plugin autoload and dependencies with the composer**
+**Install the plugin autoload and dependencies with the composer**
 ``` 
 composer install
 ```
 
-**Isntall the node dependencies with the yarn or npm**
+**Install the node dependencies with the yarn or npm**
 ``` 
 yarn install
-//or
 npm install
 ```
 
