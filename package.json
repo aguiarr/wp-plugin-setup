@@ -1,6 +1,6 @@
 {
   "name": "wp-plugin-setup",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Initial setup for wordpress plugin",
   "repository": "https://github.com/aguiarr/wp-plugin-setup",
   "author": "Matheus Aguiar",

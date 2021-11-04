@@ -16,6 +16,6 @@ class About extends RenderHtml implements InterfaceController{
 
     public function request(): void
     {
-        echo $this->render( 'about.php',[] );
+        echo $this->render( 'Admin/about.php',[] );
     }
 }

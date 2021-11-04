@@ -23,22 +23,32 @@ npm install
 '
 '  |-- app/                                     # MVC Directory
 '  |   |-- Controllers/                         # All plugin controllers
+'  |   |   |-- Actions/
+'  |   |   |   |-- index.php
 '  |   |   |-- InterfaceController.php          # Controller Interface
 '  |   |   |-- Menus.php
-'  |   |   |-- RenderHtml.php                   # Create the method that renders views
-'  |   |   |-- Menus
+'  |   |   |-- Menus/
 '  |   |   |   |-- About.php
+'  |   |   |-- Pages/
+'  |   |   |   |-- index.php
+'  |   |   |-- RenderHtml.php                   # Create the method that renders views
 '  |   |-- Helpers/                             # All plugin classes and helper files
 '  |   |   |-- Config.php                       # Page controller settings
+'  |   |   |-- Functions.php                    
 '  |   |   |-- Hooks.php                        # Plugin actions and filters
 '  |   |   |-- Utils.php                        # Statics methods and function 
 '  |   |-- Model/
 '  |   |   |-- index.php
 '  |   |-- Views/                               # All the plugin pages
-'  |   |   |-- about.php
+'  |   |   |-- Admin/
+'  |   |   |   |-- template-parts/
+'  |   |   |   |  |-- header.php
+'  |   |   |   |-- index.php
+'  |   |   |   |-- about.php
+'  |   |   |-- Pages/
+'  |   |   |   |-- template-parts/
+'  |   |   |   |  |-- header.php
 '  |   |   |-- index.php
-'  |   |   |-- template-parts                   # Templates parts
-'  |   |   |   |-- header.php
 '  |   |-- index.php                            # Plugin Index
 '  |-- resources/                               # Plugin resources
 '  |   |-- images/
@@ -50,10 +60,8 @@ npm install
 '  |   |   |   |-- index.js
 '  |   |-- styles/
 '  |   |   |-- admin/
-'  |   |   |   |-- _variaveis.scss
 '  |   |   |   |-- index.scss
 '  |   |   |-- theme/
-'  |   |   |   |-- _variaveis.scss
 '  |   |   |   |-- index.scss
 '  |-- .gitignore
 '  |-- LICENSE                                  # GPL-3 Licensce
