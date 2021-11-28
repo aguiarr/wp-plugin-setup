@@ -1,6 +1,5 @@
 # WP Plugin Setup
-
-## Version: 0.0.3
+### Version: 0.0.3
 
 ## Installing the dependencies
 **Install the plugin autoload and dependencies with the composer**
