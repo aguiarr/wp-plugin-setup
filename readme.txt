@@ -25,5 +25,13 @@ Initial setup for wordpress plugin
 
 == Changelog ==
 
+= 0.0.3 = 2021-11-28
+
+* Add Services folder
+* Table file for table criation
+* New Namespace
+* Parse views/controller functions
+* Documentation classes changes
+
 = 0.0.1 = 2021-08-09
-# Initial Release 
+* Initial Release 
