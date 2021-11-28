@@ -2,8 +2,8 @@
 
 namespace WPHLC\Helpers;
 
-use WPPluginSetup\Controllers\Menus;
-use WPPluginSetup\Helpers\Utils;
+use WPS\Controllers\Menus;
+use WPS\Helpers\Utils;
 
 class Functions
 {

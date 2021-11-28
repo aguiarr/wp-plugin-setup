@@ -1,5 +1,5 @@
 {
-  "name": "hotmart-license-controller",
+  "name": "wp-plugin-setup",
   "version": "0.0.2",
   "description": "Initial setup for wordpress plugin",
   "main": "index.js",

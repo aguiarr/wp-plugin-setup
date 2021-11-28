@@ -1,6 +1,6 @@
 <?php
 
-namespace WPPluginSetup\Model\Infrastructure;
+namespace WPS\Model\Infrastructure;
 
 /**
  * Name: Tables

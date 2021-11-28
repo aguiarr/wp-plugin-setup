@@ -1,9 +1,9 @@
 <?php
 
-namespace WPPluginSetup\Controllers\Menus;
+namespace WPS\Controllers\Menus;
 
-use WPPluginSetup\Controllers\InterfaceController;
-use WPPluginSetup\Controllers\RenderHtml;
+use WPS\Controllers\InterfaceController;
+use WPS\Controllers\RenderHtml;
 
 /**
  * Name: About

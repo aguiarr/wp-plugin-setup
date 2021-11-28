@@ -1,6 +1,6 @@
 <?php
 
-namespace WPPluginSetup\Helpers;
+namespace WPS\Helpers;
 
 /**
  * Name: Hooks
@@ -9,16 +9,16 @@ namespace WPPluginSetup\Helpers;
  * @since 0.0.1
  */
 add_action( 'admin_menu', [
-    'WPPluginSetup\Helpers\Functions',
+    'WPS\Helpers\Functions',
     'create_admin_menu'
 ] );
 
 add_action( 'init', [
-    'WPPluginSetup\Helpers\Functions',
+    'WPS\Helpers\Functions',
     'initialize'
 ] );
 
 add_action( 'init', [
-    'WPPluginSetup\Helpers\Functions',
+    'WPS\Helpers\Functions',
     'handle_actions'
 ] );

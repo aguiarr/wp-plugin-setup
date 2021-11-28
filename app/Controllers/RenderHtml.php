@@ -1,7 +1,7 @@
 <?php
 
 
-namespace WPPluginSetup\Controllers;
+namespace WPS\Controllers;
 
 /**
  * Name: Render HTML

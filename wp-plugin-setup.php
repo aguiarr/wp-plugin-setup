@@ -1,15 +1,14 @@
 <?php
 /**
  * Plugin Name: WP Plugin Setup
- * Plugin URI:  https://github.com/aguiarr/
+ * Plugin URI:  https://github.com/aguiarrdev/
  * Description: Initial setup for wordpress plugin
- * @since     0.0.2
  * Author:      Matheus Aguiar
- * Author URI:  https://github.com/aguiarr/
+ * Author URI:  https://github.com/aguiarrdev/
  *
- * @link    https://github.com/aguiarr/
+ * @link    https://github.com/aguiarrdev/
  * @since   0.0.1
- * @package WPPluginSetup
+ * @package WPS
  */
 
 require __DIR__ . '/vendor/autoload.php';

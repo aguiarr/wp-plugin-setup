@@ -1,9 +1,9 @@
 <?php 
 
-namespace WPPluginSetup\Controllers;
+namespace WPS\Controllers;
 
-use WPPluginSetup\Helpers\Config;
-use WPPluginSetup\Helpers\Utils;
+use WPS\Helpers\Config;
+use WPS\Helpers\Utils;
 
 /**
  * Name: Menus
@@ -29,7 +29,7 @@ class Menus {
 
         foreach ( $controllers as $key => $controller ) {
             $slug = Utils::parse_view( $controller[0] );
-            $function = "WPPluginSetup\\Controllers\\Menus\\$controller[0]";
+            $function = "WPS\\Controllers\\Menus\\$controller[0]";
             $menu = [
                 'title'    => $controller[1],
                 'slug'     => $slug,

@@ -1,12 +1,12 @@
 <?php
 
-namespace WPPluginSetup;
+namespace WPS;
 
 // Define names
 define( 'WP_PLUGIN_NAME', 'WP Plugin Setup' );
 define( 'WP_PLUGIN_SLUG', 'wp-plugin-setup' );
 define( 'WP_PLUGIN_PREFIX', 'wpsetup' );
-define( 'WP_PLUGIN_NAMESPACE', 'WPPluginSetup' );
+define( 'WP_PLUGIN_NAMESPACE', 'WPS' );
 
 // Define paths
 define( 'WP_PLUGIN_PATH', WP_PLUGIN_DIR . '/'. WP_PLUGIN_SLUG );

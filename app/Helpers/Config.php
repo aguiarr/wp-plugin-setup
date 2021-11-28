@@ -1,6 +1,6 @@
 <?php 
 
-namespace WPPluginSetup\Helpers;
+namespace WPS\Helpers;
 
 /**
  * Name: Config

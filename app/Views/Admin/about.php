@@ -2,7 +2,7 @@
 /**
  * Name: About Me
  * @package View
- * Controller: WPPluginSetup\Controllers\About
+ * Controller: WPS\Controllers\About
  * Style File: 
  * @since 0.0.1
  */
