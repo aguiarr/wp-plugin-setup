@@ -45,4 +45,9 @@ class Functions
             new $controller( $vars );
         }
     }
+
+    public static function redirect_to_menu_page( $to_page )
+    {
+        header( "Location: /wp-admin/admin.php?page=$to_page", false, 302 );
+    }
 }
