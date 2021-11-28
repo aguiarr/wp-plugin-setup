@@ -5,6 +5,7 @@ namespace WPPluginSetup;
 // Define names
 define( 'WP_PLUGIN_NAME', 'WP Plugin Setup' );
 define( 'WP_PLUGIN_SLUG', 'wp-plugin-setup' );
+define( 'WP_PLUGIN_PREFIX', 'wpsetup' );
 define( 'WP_PLUGIN_NAMESPACE', 'WPPluginSetup' );
 
 // Define paths
