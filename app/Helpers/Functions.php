@@ -1,6 +1,6 @@
 <?php
 
-namespace WPHLC\Helpers;
+namespace WPS\Helpers;
 
 use WPS\Controllers\Menus;
 use WPS\Helpers\Utils;
