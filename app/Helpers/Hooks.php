@@ -9,11 +9,16 @@ namespace WPPluginSetup\Helpers;
  * @since 0.0.1
  */
 add_action( 'admin_menu', [
-    'WPHLC\Helpers\Functions',
+    'WPPluginSetup\Helpers\Functions',
     'create_admin_menu'
 ] );
 
 add_action( 'init', [
-    'WPHLC\Helpers\Functions',
+    'WPPluginSetup\Helpers\Functions',
     'initialize'
+] );
+
+add_action( 'init', [
+    'WPPluginSetup\Helpers\Functions',
+    'handle_actions'
 ] );
