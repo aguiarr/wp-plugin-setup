@@ -4,9 +4,9 @@ namespace WPPluginSetup\Helpers;
 
 /**
  * Name: Hooks
- * Package: Helper
+ * @package Helper
  * Description: Call the actions and filters
- * Version: 1.0.0
+ * @since 0.0.1
  */
 add_action( 'admin_menu', [
     'WPHLC\Helpers\Functions',

@@ -1,10 +1,10 @@
 <?php
 /**
  * Name: About Me
- * Package: View
+ * @package View
  * Controller: WPPluginSetup\Controllers\About
  * Style File: 
- * Version: 1.0.0
+ * @since 0.0.1
  */
 ?>
 

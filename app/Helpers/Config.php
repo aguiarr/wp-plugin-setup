@@ -4,9 +4,9 @@ namespace WPPluginSetup\Helpers;
 
 /**
  * Name: Config
- * Package: Helper
+ * @package Helper
  * Description: Create configuration methods
- * Version: 1.0.0
+ * @since 0.0.1
  */
 class Config {
 

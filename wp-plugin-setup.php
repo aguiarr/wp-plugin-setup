@@ -3,7 +3,7 @@
  * Plugin Name: WP Plugin Setup
  * Plugin URI:  https://github.com/aguiarr/
  * Description: Initial setup for wordpress plugin
- * Version:     0.0.2
+ * @since     0.0.2
  * Author:      Matheus Aguiar
  * Author URI:  https://github.com/aguiarr/
  *

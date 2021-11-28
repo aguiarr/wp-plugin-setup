@@ -7,10 +7,10 @@ use WPPluginSetup\Helpers\Utils;
 
 /**
  * Name: Menus
- * Package: Controller
+ * @package Controller
  * Type: Process Controller
  * Description: Handle creating submenus
- * Version: 1.0.0
+ * @since 0.0.1
  */
 class Menus {
     

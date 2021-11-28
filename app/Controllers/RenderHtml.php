@@ -5,10 +5,10 @@ namespace WPPluginSetup\Controllers;
 
 /**
  * Name: Render HTML
- * Package: Controller
+ * @package Controller
  * Type: Process Controller
  * Description: Create the method that renders views
- * Version: 1.0.0
+ * @since 0.0.1
  */
 abstract class RenderHtml
 {

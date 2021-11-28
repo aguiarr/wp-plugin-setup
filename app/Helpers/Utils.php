@@ -4,9 +4,9 @@ namespace WPPluginSetup\Helpers;
 
 /**
  * Name: Utils
- * Package: Helper
+ * @package Helper
  * Description: Has the statics methods
- * Version: 1.0.0
+ * @since 0.0.1
  */
 class Utils {
 

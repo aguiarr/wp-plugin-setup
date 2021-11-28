@@ -7,10 +7,10 @@ use WPPluginSetup\Controllers\RenderHtml;
 
 /**
  * Name: About
- * Package: Controller
+ * @package Controller
  * Type: Menu Controller
  * View path: about.php
- * Version: 1.0.0
+ * @since 0.0.1
  */
 class About extends RenderHtml implements InterfaceController{
 
