@@ -1,4 +1,8 @@
 {
+    "name": "aguiarrdev/wp-plugin-setup",
+    "description": "Setup for WordPress plugin",
+    "type": "wordpress-plugin",
+    "license": "GPL-3.0",
     "autoload": {
         "psr-4": {
             "WPS\\": "app/"

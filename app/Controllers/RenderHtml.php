@@ -5,14 +5,19 @@ namespace WPS\Controllers;
 
 /**
  * Name: Render HTML
+ * Create the method that renders views
  * @package Controller
- * Type: Process Controller
- * Description: Create the method that renders views
- * @since 0.0.1
+ * @since 1.0.0
  */
 abstract class RenderHtml
 {
-    public function render( string $file, array $dados ): string
+    /**
+     * Render HTML files
+     * @param String $file
+     * @param Array $dados
+     * @return String
+     */
+    public function render( $file, $dados )
     {
         extract($dados);
         ob_start();

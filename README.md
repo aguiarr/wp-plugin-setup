@@ -1,5 +1,5 @@
 # WP Plugin Setup
-### Version: 0.0.3
+### Version: 1.0.0
 
 ## Installing the dependencies
 **Install the plugin autoload and dependencies with the composer**
@@ -14,10 +14,15 @@ npm install
 ```
 
 
-### Files and folders ignored
+### Ignored folders
 - vendor/
 - dist/
 - node_modules/
+- .cache/
+
+### Ignored files
+- *.lock
+
 
 ## File Tree
 ```

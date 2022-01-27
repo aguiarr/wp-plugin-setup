@@ -1,6 +1,6 @@
 {
   "name": "wp-plugin-setup",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "Initial setup for wordpress plugin",
   "main": "index.js",
   "repository": "https://github.com/aguiarrdev/wp-plugin-setup",
@@ -14,10 +14,14 @@
   "dependencies": {
     "autoprefixer": "^9.6.5",
     "postcss-loader": "^3.0.0",
-    "postcss-modules": "^1.4.1"
+    "postcss-modules": "^1.4.1",
+    "webpack": "^5.67.0",
+    "webpack-cli": "^4.9.2"
   },
   "scripts": {
     "build": "parcel build ./resources/* --public-url ./",
-    "dev": "parcel watch ./resources/* --public-url ./"
+    "dev": "parcel watch ./resources/* --public-url ./",
+    "i18n:textdomain": "wpi18n addtextdomain --exclude=dist,node_modules,resources,tests,vendor",
+    "i18n:pot": "wpi18n makepot --exclude=dist,node_modules,resources,tests,vendor"
   }
 }

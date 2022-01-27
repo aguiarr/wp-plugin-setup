@@ -4,13 +4,19 @@ namespace WPS\Helpers;
 
 /**
  * Name: Utils
+ * Has the statics methods
  * @package Helper
- * Description: Has the statics methods
- * @since 0.0.1
+ * @since 1.0.0
  */
 class Utils {
 
-    public static function parse_view( string $controller ) {
+    /**
+     * Parse constroller file name to view
+     * @param String $controller
+     * @return String
+     */
+    public static function parse_view( $controller ) 
+    {
 
         $split = str_split( $controller );
         $view = '';
@@ -33,6 +39,12 @@ class Utils {
         return $view;
     }
 
+    /**
+     * Parse view file name to constroller
+     * @param String $controller
+     * @param String $namespace
+     * @return String
+     */
     public static function parse_controller( $vew, $namespace = "Actions" ) 
     {
 
@@ -70,5 +82,15 @@ class Utils {
         $controller = $namespace .= $class_name;
 
         return $controller;
+    }
+
+    /**
+     * Redirect to menu page
+     * @param String $to_page
+     * @return Void
+     */
+    public static function redirect_to_menu_page( $to_page )
+    {
+        header( "Location: /wp-admin/admin.php?page=$to_page", false, 302 );
     }
 }

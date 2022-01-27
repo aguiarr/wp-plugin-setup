@@ -4,14 +4,15 @@ namespace WPS\Helpers;
 
 /**
  * Name: Config
+ * Create configuration methods
  * @package Helper
- * Description: Create configuration methods
- * @since 0.0.1
+ * @since 1.0.0
  */
 class Config {
 
     /**
      * Configure the menu controllers
+     * @return Array
      */
     public static function controllers() {
 

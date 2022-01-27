@@ -7,7 +7,7 @@
  * Author URI:  https://github.com/aguiarrdev/
  *
  * @link    https://github.com/aguiarrdev/
- * @since   0.0.1
+ * @since   1.0.0
  * @package WPS
  */
 

@@ -1,25 +1,15 @@
-<?php
-/**
- * Name: About Me
- * @package View
- * Controller: WPS\Controllers\About
- * Style File: 
- * @since 0.0.1
- */
-?>
-
 <!DOCTYPE html>
 
 <?php 
     $header = require __DIR__ . '/template-parts/header.php';
-     __( $header, 'wp-plugin-setup' );
+     __( $header );
 ?>
 <div>
     <div>
-        <h1>Hello World!</h1>
-        <p style="font-size:20px">This is a Wordpress plugin setup. You can use to initiate a Wordpress plugin!</p>
+        <h1><?php echo __( "Hello World!", WP_PLUGIN_SLUG ); ?></h1>
+        <p><?php echo __( "This is a Wordpress plugin setup. You can use to initiate a Wordpress plugin!", WP_PLUGIN_SLUG ); ?></p>
         <div>
-            <p>What changes the environment is the point of view. Use <b>wisely</b>!</p>
+            <p><?php echo __( "What changes the environment is the point of view. Use wisely!", WP_PLUGIN_SLUG ); ?></p>
         </div>
     </div>
 </div>

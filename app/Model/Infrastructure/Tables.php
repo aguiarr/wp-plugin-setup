@@ -4,9 +4,8 @@ namespace WPS\Model\Infrastructure;
 
 /**
  * Name: Tables
- * @package Model
- * Type: Infrastrucure
- * @since 0.0.3
+ * @package Infrastrucure Model
+ * @since 1.0.0
  */
 
 class Tables
@@ -29,11 +28,13 @@ class Tables
 
     }
 
+    /**
+     * Create tables
+     * @return Void
+     */
     private function create_table()
     {
-        $_query = "
-        
-        ";
+        $_query = "";
 
         if( ! function_exists('dbDelta') ) {
             require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );

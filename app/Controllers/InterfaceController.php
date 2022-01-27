@@ -4,12 +4,11 @@ namespace WPS\Controllers;
 
 /**
  * Name: Interface Controller
+ * Create the controllers interface
  * @package Controller
- * Type: Process
- * Description: Create the controllers interface
- * @since 0.0.1
+ * @since 1.0.0
  */
 interface InterfaceController
 {
-    public function request():void;
+    public function request();
 }
