@@ -1,6 +1,6 @@
 <?php
 
-namespace AfiliaPlugin\Model;
+namespace WPS\Model;
 
 /**
  * Name: Options
