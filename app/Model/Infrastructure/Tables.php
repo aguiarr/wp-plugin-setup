@@ -30,7 +30,7 @@ class Tables
 
     /**
      * Create tables
-     * @return Void
+     * @return void
      */
     private function create_table()
     {

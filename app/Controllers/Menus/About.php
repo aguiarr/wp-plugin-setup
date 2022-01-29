@@ -12,7 +12,10 @@ use WPS\Controllers\RenderHtml;
  */
 class About extends RenderHtml implements InterfaceController
 {
-
+    /**
+     * Call the view render
+     * @return void
+     */
     public function request()
     {
         echo $this->render( 'Admin/about.php',[] );

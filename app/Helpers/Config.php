@@ -12,7 +12,7 @@ class Config {
 
     /**
      * Configure the menu controllers
-     * @return Array
+     * @return array
      */
     public static function controllers() {
 

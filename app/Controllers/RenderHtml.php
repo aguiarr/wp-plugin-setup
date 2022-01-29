@@ -13,9 +13,9 @@ abstract class RenderHtml
 {
     /**
      * Render HTML files
-     * @param String $file
-     * @param Array $dados
-     * @return String
+     * @param string $file
+     * @param array $dados
+     * @return string
      */
     public function render( $file, $dados )
     {

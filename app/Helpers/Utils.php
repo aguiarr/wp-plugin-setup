@@ -12,8 +12,8 @@ class Utils {
 
     /**
      * Parse constroller file name to view
-     * @param String $controller
-     * @return String
+     * @param string $controller
+     * @return string
      */
     public static function parse_view( $controller ) 
     {
@@ -41,9 +41,9 @@ class Utils {
 
     /**
      * Parse view file name to constroller
-     * @param String $controller
-     * @param String $namespace
-     * @return String
+     * @param string $controller
+     * @param string $namespace
+     * @return string
      */
     public static function parse_controller( $vew, $namespace = "Actions" ) 
     {
@@ -86,8 +86,8 @@ class Utils {
 
     /**
      * Redirect to menu page
-     * @param String $to_page
-     * @return Void
+     * @param string $to_page
+     * @return void
      */
     public static function redirect_to_menu_page( $to_page )
     {

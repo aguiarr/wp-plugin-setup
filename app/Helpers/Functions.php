@@ -16,7 +16,7 @@ class Functions
     /**
      * Create admin menu
      * @since 1.0.0
-     * @return Void
+     * @return void
      */
     public static function create_admin_menu()
     {
@@ -37,7 +37,7 @@ class Functions
     /**
      * Load admin scripts
      * @since 1.0.0
-     * @return Void
+     * @return void
      */
     public static function enqueue_admin_scripts() 
     {
@@ -48,7 +48,7 @@ class Functions
     /**
      * Initialize plugin
      * @since 1.0.0
-     * @return Void
+     * @return void
      */
     public static function initialize()
     {
@@ -58,7 +58,7 @@ class Functions
     /**
      * handle plugins actions
      * @since 1.0.0
-     * @return Void
+     * @return void
      */
     public static function handle_actions()
     {

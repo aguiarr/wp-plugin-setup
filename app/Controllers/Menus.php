@@ -20,7 +20,7 @@ class Menus {
 
     /**
      * Get the menu controllers
-     * @return Array
+     * @return array
      */
     private function initialize_menus() 
     {
@@ -45,8 +45,8 @@ class Menus {
 
     /**
      * Create the submenus
-     * @param Array $menus
-     * @param Void
+     * @param array $menus
+     * @param void
      */
     private function create_menus( $menus ) {
 
