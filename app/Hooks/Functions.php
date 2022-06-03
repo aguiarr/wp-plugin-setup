@@ -4,12 +4,11 @@ namespace WPT\Hooks;
 
 use WPT\Controllers\Menus;
 use WPT\Helpers\Config;
-use WPT\Helpers\Utils;
 
 /**
  * Name: Function
  * Handle the hooks functions
- * @package Helper
+ * @package Hooks
  * @since 1.0.0
  */
 class Functions
@@ -27,7 +26,7 @@ class Functions
             'read',
             WPT_PLUGIN_SLUG,
             false,
-            'dashicons-editor-code'
+            'dashicons-buddicons-community'
         );
 
         new Menus();
@@ -47,6 +46,19 @@ class Functions
     }
 
     /**
+     * Load theme scripts
+     * @since 1.0.0
+     * @return void
+     */
+    public static function enqueue_theme_scripts() 
+    {
+        if ( ! is_admin() ) {
+            wp_enqueue_script( 'theme', Config::__dist( 'theme.js' ) );
+            wp_enqueue_style( 'theme', Config::__dist( 'theme.css' ) );
+        }
+    }
+
+    /**
      * Initialize plugin
      * @since 1.0.0
      * @return void
@@ -54,5 +66,6 @@ class Functions
     public static function initialize()
     {
         load_plugin_textdomain( WPT_PLUGIN_SLUG , false );
+        self::enqueue_theme_scripts();
     }
 }

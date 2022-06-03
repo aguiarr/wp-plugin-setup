@@ -6,10 +6,10 @@ namespace WPT\Controllers\Render;
 /**
  * Name: Render HTML
  * Create the method that renders views
- * @package Controller
+ * @package Controller/Render
  * @since 1.0.0
  */
-abstract class Render
+abstract class Render implements InterfaceRender
 {
     /**
      * Render HTML files

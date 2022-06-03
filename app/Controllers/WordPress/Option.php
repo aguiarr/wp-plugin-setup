@@ -4,7 +4,7 @@ namespace WPT\Controllers\WordPress;
 
 /**
  * Name: Option
- * @package Controllers\WordPress
+ * @package Controllers/WordPress
  * @since 1.0.0
  */
 class Option

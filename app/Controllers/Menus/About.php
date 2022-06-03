@@ -2,15 +2,14 @@
 
 namespace WPT\Controllers\Menus;
 
-use WPT\Controllers\Render\InterfaceRender;
 use WPT\Controllers\Render\Render;
 
 /**
  * Name: About
- * @package Menu Controller
+ * @package Controller/Menu 
  * @since 1.0.0
  */
-class About extends Render implements InterfaceRender
+class About extends Render
 {
     /**
      * Call the view render

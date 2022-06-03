@@ -4,7 +4,7 @@ namespace WPT\Controllers\WordPress;
 
 /**
  * Name: PostMeta
- * @package Controllers\WordPress
+ * @package Controllers/WordPress
  * @since 1.0.0
  */
 class PostMeta

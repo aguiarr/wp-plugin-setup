@@ -2,7 +2,6 @@
 
 namespace WPT\Controllers;
 
-use WPT\Helpers\Config;
 use WPT\Helpers\Utils;
 
 /**
@@ -41,24 +40,26 @@ class Menus {
         $menus = [];
 
         foreach ( $controllers as $key => $controller ) {
-            $slug = Utils::parse_view( $controller[0] );
+
+            $slug     = Utils::parse_view( $controller[0] );
             $function = WPT_PLUGIN_NAMESPACE . "\\Controllers\\Menus\\$controller[0]";
-            $menu = [
+            $menu     = [
                 'title'    => $controller[1],
                 'slug'     => $slug,
-                'function' => [new $function, 'request'] ,
+                'function' => [ new $function, 'request' ],
                 'position' => $key
             ];
 
             array_push( $menus, $menu );
         }
+        
         return $this->create( $menus );
     }
 
     /**
      * Create the submenus
      * @param array $menus
-     * @param void
+     * @return void
      */
     private function create( $menus ) {
 
@@ -66,6 +67,7 @@ class Menus {
             add_submenu_page(WPT_PLUGIN_SLUG ,$menu['title'],$menu['title'],'manage_options',$menu['slug'],$menu['function'],$menu['position']);
         }
 
+        ## Remove default submenu
         remove_submenu_page(WPT_PLUGIN_SLUG ,WPT_PLUGIN_SLUG);
     }
 }
