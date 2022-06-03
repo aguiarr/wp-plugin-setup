@@ -55,21 +55,4 @@ class Functions
     {
         load_plugin_textdomain( WPT_PLUGIN_SLUG , false );
     }
-
-    /**
-     * handle plugins actions
-     * @since 1.0.0
-     * @return void
-     */
-    public static function handle_actions()
-    {
-        $action_name = WPT_PLUGIN_PREFIX . '_action';
-        $vars = isset( $_REQUEST[$action_name] ) ? (array) $_REQUEST : array();
-
-        if ( is_array( $vars ) && isset( $vars[$action_name] ) ) {
-            $controller = Utils::parse_controller( $vars[$action_name] );
-
-            new $controller( $vars );
-        }
-    }
 }

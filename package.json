@@ -4,12 +4,13 @@
   "description": "Initial setup for wordpress plugin",
   "main": "index.js",
   "repository": "https://github.com/aguiarrdev/wp-plugin-template",
-  "author": "Matheus Aguiar",
+  "author": "Code Bakery",
   "license": "GPL-3.0",
   "devDependencies": {
-    "node-sass": "~4.13.1",
+    "node-sass": "^7.0.1",
     "parcel-bundler": "^1.12.5",
-    "sass": "^1.42.1"
+    "sass": "^1.42.1",
+    "typescript": "^4.7.3"
   },
   "dependencies": {
     "autoprefixer": "^9.6.5",

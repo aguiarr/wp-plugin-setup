@@ -38,52 +38,7 @@ class Utils {
         }
         return $view;
     }
-
-    /**
-     * Parse view file name to constroller
-     * @param string $controller
-     * @param string $namespace
-     * @return string
-     */
-    public static function parse_controller( $vew, $namespace = "Actions" ) 
-    {
-
-        $split = str_split( $vew );
-        $namespace = WPT_PLUGIN_NAMESPACE . "\\Controllers\\$namespace\\";
-        $class_name = '';
-        $count = 0;
-
-        $next_upper = false;
-
-        foreach ( $split as $letter ) {
-
-            if ( $count === 0 ) {
-                $class_name .= strtoupper( $letter );
-            }else {
-
-                if ( $letter === '_' ) {
-                    $next_upper = true;
     
-                } else {
-                    if ( $next_upper ) {
-                        $class_name .= strtoupper( $letter );
-    
-                    } else {
-                        $class_name .= $letter;
-                    }
-    
-                    $next_upper = false;
-                }
-            }
-
-            $count++;
-        }
-
-        $controller = $namespace .= $class_name;
-
-        return $controller;
-    }
-
     /**
      * Redirect to menu page
      * @param string $to_page

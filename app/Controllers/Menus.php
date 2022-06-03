@@ -15,7 +15,7 @@ class Menus {
     
     public function __construct()
     {
-        $this->initialize_menus();
+        $this->init();
     }
 
     /**
@@ -34,7 +34,7 @@ class Menus {
      * @since 1.0.0
      * @return array
      */
-    private function initialize_menus() 
+    private function init() 
     {
 
         $controllers = $this->menus();
@@ -52,7 +52,7 @@ class Menus {
 
             array_push( $menus, $menu );
         }
-        return $this->create_menus( $menus );
+        return $this->create( $menus );
     }
 
     /**
@@ -60,7 +60,7 @@ class Menus {
      * @param array $menus
      * @param void
      */
-    private function create_menus( $menus ) {
+    private function create( $menus ) {
 
         foreach ( $menus as $menu ) {
             add_submenu_page(WPT_PLUGIN_SLUG ,$menu['title'],$menu['title'],'manage_options',$menu['slug'],$menu['function'],$menu['position']);

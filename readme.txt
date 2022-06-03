@@ -1,10 +1,10 @@
 === WordPress Plugin Template ===
-Contributors: aguiart0
+Contributors: codebakery
 Tags: setup
 Requires at least: 5.0
 Tested up to: 5.8
 Stable tag: 1.0.0
-Requires PHP: 7.2
+Requires PHP: 7.4
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -15,7 +15,7 @@ Initial setup for wordpress plugin
 
 = Requisitos =
 
-- PHP versão 5.6 ou superior.
+- PHP versão 7.4 ou superior.
 
 == Installation ==
 1. Upload this plugin to your WordPress, and activate it;
