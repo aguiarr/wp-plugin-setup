@@ -1,7 +1,7 @@
 <?php
 
 
-namespace WPS\Controllers;
+namespace WPT\Controllers\Render;
 
 /**
  * Name: Render HTML
@@ -9,7 +9,7 @@ namespace WPS\Controllers;
  * @package Controller
  * @since 1.0.0
  */
-abstract class RenderHtml
+abstract class Render
 {
     /**
      * Render HTML files
@@ -22,7 +22,7 @@ abstract class RenderHtml
         extract($dados);
         ob_start();
         
-        require __DIR__ . '/../Views/' . $file;
+        require __DIR__ . '/../../Views/' . $file;
         $html = ob_get_clean();
 
         return $html;

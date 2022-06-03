@@ -1,4 +1,4 @@
-# WP Plugin Setup
+# WordPress Plugin Template
 ### Version: 1.0.0
 
 ## Installing the dependencies
@@ -83,7 +83,7 @@ npm install
 │   │       ├── index.scss
 │   │       └── _variaveis.scss
 │   └── theme.js
-└── wp-plugin-setup.php
+└── wp-plugin-template.php
 
 
 ```

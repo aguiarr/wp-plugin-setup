@@ -1,9 +1,9 @@
 <?php 
 
-namespace WPS\Controllers;
+namespace WPT\Controllers;
 
-use WPS\Helpers\Config;
-use WPS\Helpers\Utils;
+use WPT\Helpers\Config;
+use WPT\Helpers\Utils;
 
 /**
  * Name: Menus
@@ -19,18 +19,30 @@ class Menus {
     }
 
     /**
+     * Set visible menus
+     * @since 1.0.0
+     * @param array
+     */
+    private function menus() {
+        return [
+            ['About', 'About me'],
+        ];
+    }
+
+    /**
      * Get the menu controllers
+     * @since 1.0.0
      * @return array
      */
     private function initialize_menus() 
     {
 
-        $controllers = Config::controllers();
+        $controllers = $this->menus();
         $menus = [];
 
         foreach ( $controllers as $key => $controller ) {
             $slug = Utils::parse_view( $controller[0] );
-            $function = "WPS\\Controllers\\Menus\\$controller[0]";
+            $function = WPT_PLUGIN_NAMESPACE . "\\Controllers\\Menus\\$controller[0]";
             $menu = [
                 'title'    => $controller[1],
                 'slug'     => $slug,
@@ -51,9 +63,9 @@ class Menus {
     private function create_menus( $menus ) {
 
         foreach ( $menus as $menu ) {
-            add_submenu_page(WP_PLUGIN_SLUG ,$menu['title'],$menu['title'],'manage_options',$menu['slug'],$menu['function'],$menu['position']);
+            add_submenu_page(WPT_PLUGIN_SLUG ,$menu['title'],$menu['title'],'manage_options',$menu['slug'],$menu['function'],$menu['position']);
         }
 
-        remove_submenu_page(WP_PLUGIN_SLUG ,WP_PLUGIN_SLUG);
+        remove_submenu_page(WPT_PLUGIN_SLUG ,WPT_PLUGIN_SLUG);
     }
 }

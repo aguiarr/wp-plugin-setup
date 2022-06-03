@@ -1,9 +1,10 @@
 <?php
 
-namespace WPS\Helpers;
+namespace WPT\Hooks;
 
-use WPS\Controllers\Menus;
-use WPS\Helpers\Utils;
+use WPT\Controllers\Menus;
+use WPT\Helpers\Config;
+use WPT\Helpers\Utils;
 
 /**
  * Name: Function
@@ -21,10 +22,10 @@ class Functions
     public static function create_admin_menu()
     {
         add_menu_page(
-            WP_PLUGIN_NAME, 
-            WP_PLUGIN_NAME,
+            WPT_PLUGIN_NAME, 
+            WPT_PLUGIN_NAME,
             'read',
-            WP_PLUGIN_SLUG,
+            WPT_PLUGIN_SLUG,
             false,
             'dashicons-editor-code'
         );
@@ -41,8 +42,8 @@ class Functions
      */
     public static function enqueue_admin_scripts() 
     {
-        wp_enqueue_script( 'admin', WP_PLUGIN_DIST . '/admin.js');
-        wp_enqueue_style( 'admin', WP_PLUGIN_DIST . '/admin.css');
+        wp_enqueue_script( 'admin', Config::__dist( 'admin.js' ) );
+        wp_enqueue_style( 'admin', Config::__dist( 'admin.css' ) );
     }
 
     /**
@@ -52,7 +53,7 @@ class Functions
      */
     public static function initialize()
     {
-        load_plugin_textdomain( WP_PLUGIN_SLUG , false );
+        load_plugin_textdomain( WPT_PLUGIN_SLUG , false );
     }
 
     /**
@@ -62,7 +63,7 @@ class Functions
      */
     public static function handle_actions()
     {
-        $action_name = WP_PLUGIN_PREFIX . '_action';
+        $action_name = WPT_PLUGIN_PREFIX . '_action';
         $vars = isset( $_REQUEST[$action_name] ) ? (array) $_REQUEST : array();
 
         if ( is_array( $vars ) && isset( $vars[$action_name] ) ) {

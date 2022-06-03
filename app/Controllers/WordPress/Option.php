@@ -1,23 +1,23 @@
 <?php
 
-namespace WPS\Model;
+namespace WPT\Controllers\WordPress;
 
 /**
- * Name: Options
- * @package Model
+ * Name: Option
+ * @package Controllers\WordPress
  * @since 1.0.0
  */
-class Options
+class Option
 {
     private $prefix;
 
     public function __construct()
     {
-        $this->prefix = WP_PLUGIN_SLUG;
+        $this->prefix = WPT_PLUGIN_SLUG;
     }
 
     /**
-     * Update options
+     * Update option
      * @param string $opt
      * @param mixed $value
      * @return mixed
@@ -31,7 +31,7 @@ class Options
     }
 
     /**
-     * Get options
+     * Get option
      * @param string $opt
      * @return mixed
      */
@@ -44,7 +44,7 @@ class Options
     }
 
     /**
-     * Create options
+     * Create option
      * @param string $opt
      * @param mixed $value
      * @return mixed

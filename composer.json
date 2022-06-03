@@ -1,11 +1,20 @@
 {
-    "name": "aguiarrdev/wp-plugin-setup",
+    "name": "codebakery/wp-plugin-template",
     "description": "Setup for WordPress plugin",
     "type": "wordpress-plugin",
     "license": "GPL-3.0",
+    "support": {
+        "issues": "https://github.com/codebakerys/wp-plugin-template/issues",
+        "source": "https://github.com/codebakerys/wp-plugin-template"
+    },
+    "keywords": [],
     "autoload": {
         "psr-4": {
-            "WPS\\": "app/"
+            "WPT\\": "app/"
         }
+    },
+    "require": {
+        "ext-json": "*",
+        "ext-pdo": "*"
     }
 }

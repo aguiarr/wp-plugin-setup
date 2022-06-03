@@ -1,9 +1,9 @@
 {
-  "name": "wp-plugin-setup",
+  "name": "wp-plugin-template",
   "version": "1.0.0",
   "description": "Initial setup for wordpress plugin",
   "main": "index.js",
-  "repository": "https://github.com/aguiarrdev/wp-plugin-setup",
+  "repository": "https://github.com/aguiarrdev/wp-plugin-template",
   "author": "Matheus Aguiar",
   "license": "GPL-3.0",
   "devDependencies": {

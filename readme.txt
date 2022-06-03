@@ -1,4 +1,4 @@
-=== WP Plugin Setup ===
+=== WordPress Plugin Template ===
 Contributors: aguiart0
 Tags: setup
 Requires at least: 5.0

@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: WP Plugin Setup
+ * Plugin Name: WordPress Plugin Template
  * Plugin URI:  https://github.com/aguiarrdev/
  * Description: Initial setup for wordpress plugin
  * Author:      Matheus Aguiar
@@ -8,13 +8,13 @@
  *
  * @link    https://github.com/aguiarrdev/
  * @since   1.0.0
- * @package WPS
+ * @package WPT
  */
 
 require __DIR__ . '/vendor/autoload.php';
 if ( version_compare( phpversion(), '5.6' ) < 0  ) {
-	wp_die( "The WP Plugin Setup isn't compatible to your PHP version. <p>The PHP version has to be a less 5.7</p>",
-		'The WP Plugin Setup -- Error',
+	wp_die( "The WordPress Plugin Template isn't compatible to your PHP version. <p>The PHP version has to be a less 5.7</p>",
+		'The WordPress Plugin Template -- Error',
 		[ 'back_link' => true ]
 	);
 }

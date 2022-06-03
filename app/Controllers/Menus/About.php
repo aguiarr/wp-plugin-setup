@@ -1,16 +1,16 @@
 <?php
 
-namespace WPS\Controllers\Menus;
+namespace WPT\Controllers\Menus;
 
-use WPS\Controllers\InterfaceController;
-use WPS\Controllers\RenderHtml;
+use WPT\Controllers\Render\InterfaceRender;
+use WPT\Controllers\Render\Render;
 
 /**
  * Name: About
  * @package Menu Controller
  * @since 1.0.0
  */
-class About extends RenderHtml implements InterfaceController
+class About extends Render implements InterfaceRender
 {
     /**
      * Call the view render
@@ -18,6 +18,6 @@ class About extends RenderHtml implements InterfaceController
      */
     public function request()
     {
-        echo $this->render( 'Admin/about.php',[] );
+        echo $this->render( 'Admin/about.php', [] );
     }
 }

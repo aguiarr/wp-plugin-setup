@@ -1,6 +1,6 @@
 <?php
 
-namespace WPS\Helpers;
+namespace WPT\Helpers;
 
 /**
  * Name: Utils
@@ -49,7 +49,7 @@ class Utils {
     {
 
         $split = str_split( $vew );
-        $namespace = WP_PLUGIN_NAMESPACE . "\\Controllers\\$namespace\\";
+        $namespace = WPT_PLUGIN_NAMESPACE . "\\Controllers\\$namespace\\";
         $class_name = '';
         $count = 0;
 
