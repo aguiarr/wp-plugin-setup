@@ -53,7 +53,7 @@ export class Notification {
     }
   }
 
-  closeButton(button: HTMLElement) {
+  closeButton(button: HTMLElement): void {
     button.addEventListener("click", () => {
       this.reset();
     });

@@ -7,6 +7,8 @@ export class About {
   }
 
   handleNotification(): void {
-    new Notification("Hello World!", "This is a example notification", 5);
+    setTimeout(() => {
+      new Notification("Hello World!", "This is a example notification", 5);
+    }, 1000);
   }
 }

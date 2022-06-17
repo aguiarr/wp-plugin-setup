@@ -57,6 +57,8 @@ class Functions
             wp_enqueue_script( 'theme', Config::__dist( 'theme.js' ) );
             wp_enqueue_style( 'theme', Config::__dist( 'theme.css' ) );
         }
+
+        wp_enqueue_script( 'global', Config::__dist( 'global.js' ) );
     }
 
     /**
