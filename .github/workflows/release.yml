@@ -34,23 +34,20 @@ jobs:
             rm composer.json package.json composer.lock
             rm README.md tsconfig.json .gitignore
             
-    - name: Committing changes
-      run: |
-            git config --global user.email "contato@codebakery.com.br"
-            git config --global user.name "Code Bakery"
-            
-            git commit -am "build: Building a new version"
-
-    - name: Create a GitHub tag
+    - name: Generate the next tag version
       id: tag_version
       uses: mathieudutour/github-tag-action@v6.0
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
           
-    - name: Create a GitHub release
-      uses: ncipollo/release-action@v1
-      with:
-        tag: ${{ steps.tag_version.outputs.new_tag }}
-        name: Release ${{ steps.tag_version.outputs.new_tag }}
-        body: ${{ steps.tag_version.outputs.changelog }}
+    - name: Create a GitHub tag
+      run: |
+            git config --global user.email "contato@codebakery.com.br"
+            git config --global user.name "Code Bakery"
+            
+            git commit -am "build: Building a new version"
+            
+            git tag -a ${{ steps.tag_version.outputs.new_tag }} -m "Release: ${{ steps.tag_version.outputs.new_tag }}"
+            
+            echo "All right! 🍕"
 
