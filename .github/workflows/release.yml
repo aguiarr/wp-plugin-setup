@@ -1,0 +1,31 @@
+name: PHP Composer
+
+on:
+  push:
+    branches: [ "master", "stage" ]
+  pull_request:
+    branches: [ "master", "stage" ]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Validate composer.json and composer.lock
+      run: composer validate --strict
+      
+    - name: Install node dependencies
+      run: yarn install --frozen-lockfile --prefer-offline
+
+    - name: Build node dependencies
+      run: yarn build
+
+    - name: Install dependencies
+      run: composer install --prefer-dist --no-progress
+
