@@ -35,10 +35,10 @@ jobs:
     - name: Remove developer files
       run: |
             rm composer.json package.json composer.lock
-            rm README.md tsconfig.json .gitignore.json
+            rm README.md tsconfig.json .gitignore
     
     - name: Tag a new version
       run: |
-            git tag ${{github.run_id}}
+            git tag -a ${{github.run_id}} -m "New version: ${{github.run_id}}"
             git push origin ${{github.run_id}}
 
