@@ -30,7 +30,6 @@ jobs:
       run: |
             rm -r node_modules/
             rm -r resources/
-            rm -r .git/
             
     - name: Remove developer files
       run: |
