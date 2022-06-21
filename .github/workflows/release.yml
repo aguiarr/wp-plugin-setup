@@ -48,6 +48,7 @@ jobs:
             git commit -am "build: Building a new version"
             
             git tag -a ${{ steps.tag_version.outputs.new_tag }} -m "Release: ${{ steps.tag_version.outputs.new_tag }}"
+            git push origin ${{ steps.tag_version.outputs.new_tag }}
             
             echo "All right! 🍕"
 
