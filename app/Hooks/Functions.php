@@ -2,7 +2,9 @@
 
 namespace WPT\Hooks;
 
+use WPT\Model\Database\Bootstrap;
 use WPT\Controllers\Menus;
+use WPT\Helpers\Uninstall;
 use WPT\Helpers\Config;
 
 /**
@@ -32,6 +34,7 @@ class Functions
         new Menus();
 
         self::enqueue_admin_scripts();
+        register_deactivation_hook( __FILE__, self::desactive() );
     }
 
     /**
@@ -70,5 +73,26 @@ class Functions
     {
         load_plugin_textdomain( WPT_PLUGIN_SLUG , false );
         self::enqueue_theme_scripts();
+    }
+
+    /**
+     * Activate plugin
+     * @since 1.0.0
+     * @return void|bool
+     */
+    public static function activate( $plugin )
+    {
+        if ( Config::__base() === $plugin ) {
+            new Bootstrap;
+        }
+    }
+
+    /**
+     * Desactive the plugin
+     * @since 1.0.0
+     * @return void
+     */
+    public static function desactive() {
+        new Uninstall;
     }
 }

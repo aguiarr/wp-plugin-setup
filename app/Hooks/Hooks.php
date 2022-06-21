@@ -19,3 +19,8 @@ add_action( 'init', [
     'initialize' 
 ] );
 
+add_action( 'activated_plugin', [
+    Functions::class,
+    'activate'
+] );
+
