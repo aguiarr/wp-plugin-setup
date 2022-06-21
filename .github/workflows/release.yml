@@ -7,10 +7,8 @@ on:
     branches: [ "master", "stage" ]
 
 permissions:
-  contents: read
+  contents: read|write
   
-env:
-  LAST_TAG: git describe --tags --abbrev=0
   
 jobs:
   build:
@@ -38,12 +36,19 @@ jobs:
       run: |
             rm composer.json package.json composer.lock
             rm README.md tsconfig.json .gitignore
-    
-    - name: Tag a new version
-      run: |
-            git config --global user.email "contato@codebakery.com.br"
-            git config --global user.name "Code Bakery"
             
-            git tag -a ${{github.run_id}} -m "New version: ${{github.run_id}}"
-            git push origin ${{github.run_id}}
+    - name: Create a GitHub release
+      uses: ncipollo/release-action@v1
+      with:
+        tag: ${{ steps.tag_version.outputs.new_tag }}
+        name: Release ${{ steps.tag_version.outputs.new_tag }}
+        body: ${{ steps.tag_version.outputs.changelog }}
+    
+#     - name: Tag a new version
+#       run: |
+#             git config --global user.email "contato@codebakery.com.br"
+#             git config --global user.name "Code Bakery"
+            
+#             git tag -a ${{github.run_id}} -m "New version: ${{github.run_id}}"
+#             git push origin ${{github.run_id}}
 
