@@ -16,9 +16,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-
-    - name: Validate composer.json and composer.lock
-      run: composer validate --strict
       
     - name: Install node dependencies
       run: yarn install --frozen-lockfile --prefer-offline
