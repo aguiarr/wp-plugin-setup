@@ -4,7 +4,6 @@ namespace WPT\Model\Database;
 
 use As247\WpEloquent\Application;
 use WPT\Model\Database\Tables\Example;
-use As247\WpEloquent\Support\Facades\DB;
 
 /**
  * Name: Bootstrap
