@@ -17,12 +17,24 @@ jobs:
     steps:
     - uses: actions/checkout@v3
       
+    - name: Install Composer dependencies
+      run: composer install --prefer-dist --no-progress
+      
     - name: Install node dependencies
       run: yarn install --frozen-lockfile --prefer-offline
 
     - name: Build node dependencies
       run: yarn build
-
-    - name: Install dependencies
-      run: composer install --prefer-dist --no-progress
+      
+    - name: Remove developer folders
+      run: |
+            rm -r node_modules/
+            rm -r resources/
+            rm -r .git/
+            
+    - name: Remove developer files
+      run: |
+            rm composer.json composer.lock
+            rm package.json yarn.lock
+            rm README.md tsconfig.json .gitignore.json
 
