@@ -6,10 +6,6 @@ on:
   pull_request:
     branches: [ "master", "stage" ]
 
-permissions:
-  contents: read|write
-  
-  
 jobs:
   build:
 
