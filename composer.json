@@ -7,7 +7,9 @@
         "issues": "https://github.com/codebakerys/wp-plugin-template/issues",
         "source": "https://github.com/codebakerys/wp-plugin-template"
     },
-    "keywords": [],
+    "keywords": [
+        "wordpress", "plugin", "template"
+    ],
     "autoload": {
         "psr-4": {
             "WPT\\": "app/"
