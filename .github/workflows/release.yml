@@ -39,7 +39,7 @@ jobs:
             git config --global user.email "contato@codebakery.com.br"
             git config --global user.name "Code Bakery"
             
-            git config commit -am "build: Building a new version"
+            git commit -am "build: Building a new version"
 
     - name: Create a GitHub tag
       id: tag_version
