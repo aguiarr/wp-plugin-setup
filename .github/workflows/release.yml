@@ -8,7 +8,10 @@ on:
 
 permissions:
   contents: read
-
+  
+env:
+  LAST_TAG: git describe --tags --abbrev=0
+  
 jobs:
   build:
 
@@ -38,6 +41,9 @@ jobs:
     
     - name: Tag a new version
       run: |
+            git config --global user.email "contato@codebakery.com.br"
+            git config --global user.name "Code Bakery"
+            
             git tag -a ${{github.run_id}} -m "New version: ${{github.run_id}}"
             git push origin ${{github.run_id}}
 
