@@ -22,6 +22,10 @@ jobs:
 
     - name: Build node dependencies
       run: yarn build
+    
+    - name: Generate a new tag name
+      run: |
+        NEXT_VERSION=$(bash ./.github/tags/next.sh)
       
     - name: Remove developer folders
       run: |
@@ -40,8 +44,6 @@ jobs:
             git config --global user.name "Code Bakery"
             
             git commit -am "build: Building a new version"
-            
-            NEXT_VERSION=$(bash ./.github/tags/next.sh)
             
             git tag -a $NEXT_VERSION -m "Release: $NEXT_VERSION"
             git push origin $NEXT_VERSION
