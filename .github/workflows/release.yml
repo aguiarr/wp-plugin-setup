@@ -2,10 +2,10 @@ name: PHP Composer
 
 on:
   push:
-    branches: [ "master", "stage" ]
+    branches: [ "master" ]
   pull_request:
-    branches: [ "master", "stage" ]
-
+    branches: [ "master" ]
+    
 jobs:
   build:
 
@@ -41,11 +41,11 @@ jobs:
             
             git commit -am "build: Building a new version"
             
-            echo ${{ bash ./.github/tags/next.sh }}
+            NEXT_VERSION=$(bash ./.github/tags/next.sh)
             
-            git tag -a ${{ bash ./.github/tags/next.sh }} -m "Release: ${{ bash ./.github/tags/next.sh }}"
-            git push origin ${{ bash ./.github/tags/next.sh }}
+            git tag -a $NEXT_VERSION -m "Release: $NEXT_VERSION"
+            git push origin $NEXT_VERSION
             
-            echo ${{ bash ./.github/tags/next.sh }}
+            echo $NEXT_VERSION
             echo "All right! 🍕"
 
