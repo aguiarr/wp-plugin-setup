@@ -34,21 +34,18 @@ jobs:
             rm composer.json package.json composer.lock
             rm README.md tsconfig.json .gitignore
             
-    - name: Generate the next tag version
-      id: tag_version
-      uses: mathieudutour/github-tag-action@v6.0
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-          
-    - name: Create a GitHub tag
+    - name: Create a new GitHub tag
       run: |
             git config --global user.email "contato@codebakery.com.br"
             git config --global user.name "Code Bakery"
             
             git commit -am "build: Building a new version"
             
-            git tag -a ${{ steps.tag_version.outputs.new_tag }} -m "Release: ${{ steps.tag_version.outputs.new_tag }}"
-            git push origin ${{ steps.tag_version.outputs.new_tag }}
+            echo ${{ bash ./.github/tags/next.sh }}
             
+            git tag -a ${{ bash ./.github/tags/next.sh }} -m "Release: ${{ bash ./.github/tags/next.sh }}"
+            git push origin ${{ bash ./.github/tags/next.sh }}
+            
+            echo ${{ bash ./.github/tags/next.sh }}
             echo "All right! 🍕"
 
