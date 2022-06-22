@@ -6,6 +6,9 @@ on:
   pull_request:
     branches: [ "master" ]
     
+env:
+  NEXT_VERSION: $(bash ./.github/tags/next.sh)
+  
 jobs:
   build:
 
@@ -22,10 +25,6 @@ jobs:
 
     - name: Build node dependencies
       run: yarn build
-    
-    - name: Generate a new tag name
-      run: |
-        NEXT_VERSION=$(bash ./.github/tags/next.sh)
       
     - name: Remove developer folders
       run: |
