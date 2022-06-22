@@ -38,6 +38,7 @@ jobs:
             git config --global user.email "contato@codebakery.com.br"
             git config --global user.name "Code Bakery"
             
+            git fetch --prune --unshallow
             git describe --tags --abbrev=0
             
             NEXT_VERSION=$(bash ./.github/tags/next.sh)
