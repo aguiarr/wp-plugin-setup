@@ -38,7 +38,7 @@ jobs:
             git config --global user.email "contato@codebakery.com.br"
             git config --global user.name "Code Bakery"
             
-            NEXT_VERSION: $(bash ./.github/tags/next.sh)
+            NEXT_VERSION=$(bash ./.github/tags/next.sh)
             rm -r .github/
             
             git commit -am "build: Building a new version"
