@@ -36,21 +36,18 @@ jobs:
             rm composer.json package.json composer.lock
             rm README.md tsconfig.json .gitignore
             
-    - name: Create a new GitHub tag
+    - name: Create a new GitHub developer tag
       run: |
-            git config --global user.email "contato@codebakery.com.br"
-            git config --global user.name "Code Bakery"
-            
-            git fetch --prune --unshallow
-            git describe --tags --abbrev=0
-            
-            NEXT_VERSION=$(bash ./.github/version/next.sh)
-            rm -r .github/
-            
+            git tag -a dev-${{github.run_id}} -m "New developer tag: ${{github.run_id}}"
+            git push origin dev-${{github.run_id}}
+
+    - name: Create a new GitHub prod tag
+      run: |
             git commit -am "build: Building a new version"
             
-            git tag -a $NEXT_VERSION -m "Release: $NEXT_VERSION" 
-            git push origin $NEXT_VERSION
+            git tag -a prod-${{github.run_id}} -m "New tag: ${{github.run_id}}"
+            git push origin prod-${{github.run_id}}
+
             
             echo $NEXT_VERSION
             echo "All right! 🍕"
