@@ -21,9 +21,6 @@ jobs:
     - name: Install Composer dependencies
       run: composer install --prefer-dist --no-progress
       
-    - name: Install Composer dependencies
-      run: composer install --prefer-dist --no-progress
-      
     - name: Install node dependencies
       run: yarn install --frozen-lockfile --prefer-offline
 
@@ -34,6 +31,7 @@ jobs:
       run: |
             rm -r node_modules/
             rm -r resources/
+            rm -r .github/
             
     - name: Remove developer files
       run: |
@@ -54,6 +52,7 @@ jobs:
             git config --global user.email "$GITHUB_MAIL"
             git config --global user.name "$GITHUB_NAME"
 
+            git add .
             git commit -am "build: Building a new version"
             
             git tag -a pro-${{github.run_id}} -m "New tag: ${{github.run_id}}"
