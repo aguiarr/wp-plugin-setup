@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [ "master" ]
   
+env:
+  GITHUB_MAIL: contato@codebakery.com.br
+  GITHUB_NAME: Code Bakery
+
 jobs:
   build:
 
@@ -38,17 +42,22 @@ jobs:
             
     - name: Create a new GitHub developer tag
       run: |
+
+            git config --global user.email "$GITHUB_MAIL"
+            git config --global user.name "$GITHUB_NAME"
+
             git tag -a dev-${{github.run_id}} -m "New developer tag: ${{github.run_id}}"
             git push origin dev-${{github.run_id}}
 
     - name: Create a new GitHub prod tag
       run: |
+            git config --global user.email "$GITHUB_MAIL"
+            git config --global user.name "$GITHUB_NAME"
+
             git commit -am "build: Building a new version"
             
             git tag -a prod-${{github.run_id}} -m "New tag: ${{github.run_id}}"
             git push origin prod-${{github.run_id}}
 
-            
-            echo $NEXT_VERSION
             echo "All right! 🍕"
 
