@@ -56,8 +56,8 @@ jobs:
 
             git commit -am "build: Building a new version"
             
-            git tag -a prod-${{github.run_id}} -m "New tag: ${{github.run_id}}"
-            git push origin prod-${{github.run_id}}
+            git tag -a pro-${{github.run_id}} -m "New tag: ${{github.run_id}}"
+            git push origin pro-${{github.run_id}}
 
             echo "All right! 🍕"
 
