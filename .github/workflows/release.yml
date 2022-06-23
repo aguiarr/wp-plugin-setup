@@ -29,9 +29,12 @@ jobs:
       
     - name: Remove developer folders
       run: |
+            rm -r resources/scripts
+            rm -r resources/styles
+            rm -r resources/*.ts
             rm -r node_modules/
-            rm -r resources/
             rm -r .github/
+            rm -r .cache/
             
     - name: Remove developer files
       run: |
