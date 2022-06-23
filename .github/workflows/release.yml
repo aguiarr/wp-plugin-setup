@@ -1,4 +1,4 @@
-name: PHP Composer
+name: Generate GitHub Tag
 
 on:
   push:
@@ -13,6 +13,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+
+    - name: Install Composer dependencies
+      run: composer install --prefer-dist --no-progress
       
     - name: Install Composer dependencies
       run: composer install --prefer-dist --no-progress
@@ -41,7 +44,7 @@ jobs:
             git fetch --prune --unshallow
             git describe --tags --abbrev=0
             
-            NEXT_VERSION=$(bash ./.github/tags/next.sh)
+            NEXT_VERSION=$(bash ./.github/version/next.sh)
             rm -r .github/
             
             git commit -am "build: Building a new version"
