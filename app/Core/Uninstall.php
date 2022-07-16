@@ -1,6 +1,6 @@
 <?php
 
-namespace WPT\Helpers;
+namespace WPT\Core;
 
 use WPT\Model\Database\Bootstrap;
 

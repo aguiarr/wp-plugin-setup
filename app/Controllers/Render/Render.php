@@ -15,7 +15,9 @@ abstract class Render implements InterfaceRender
 {
 
     /**
-     * 
+     * Enqueue page/menu scripts
+     * @param array $scripts
+     * @return void
      */
     protected function enqueue_scripts( $scripts )
     {
@@ -26,7 +28,9 @@ abstract class Render implements InterfaceRender
     }
 
     /**
-     * 
+     * Enqueue page/menu styles
+     * @param array $styles
+     * @return void
      */
     protected function enqueue_styles( $styles )
     {
@@ -37,7 +41,8 @@ abstract class Render implements InterfaceRender
     }
 
     /**
-     * 
+     * Call enqueue default
+     * @return void
      */
     private function enqueue_default()
     {
@@ -70,8 +75,14 @@ abstract class Render implements InterfaceRender
     {
         extract($dados);
         ob_start();
+
+        $template = get_template_directory() . "/wpt-templates/$file";
         
-        require __DIR__ . '/../../Views/' . $file;
+        if ( ! file_exists( $template ) ) {
+            $template = Config::__views( $file );
+        }
+        
+        require $template;
         $html = ob_get_clean();
 
         echo $html;

@@ -41,7 +41,7 @@ class About extends Render
      */
     public function request()
     {
-        $this->render( 'Admin/about.php', [] );
+        $this->render( 'admin/about.php', [] );
         $this->enqueue();
     }
 }

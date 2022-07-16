@@ -1,16 +1,16 @@
 <?php
 
-namespace WPT\Hooks;
+namespace WPT\Core;
 
 use WPT\Model\Database\Bootstrap;
 use WPT\Controllers\Menus;
-use WPT\Helpers\Uninstall;
 use WPT\Helpers\Config;
+use WPT\Core\Uninstall;
 
 /**
  * Name: Function
  * Handle the hooks functions
- * @package Hooks
+ * @package Core
  * @since 1.0.0
  */
 class Functions
@@ -20,7 +20,7 @@ class Functions
      * @since 1.0.0
      * @return void
      */
-    public static function create_admin_menu()
+    public function create_admin_menu()
     {
         add_menu_page(
             WPT_PLUGIN_NAME, 
@@ -41,7 +41,7 @@ class Functions
      * @since 1.0.0
      * @return void
      */
-    public static function initialize()
+    public function initialize()
     {
         load_plugin_textdomain( WPT_PLUGIN_SLUG , false );
     }
@@ -51,7 +51,7 @@ class Functions
      * @since 1.0.0
      * @return void|bool
      */
-    public static function activate( $plugin )
+    public function activate( $plugin )
     {
         if ( Config::__base() === $plugin ) {
             new Bootstrap;
@@ -63,7 +63,7 @@ class Functions
      * @since 1.0.0
      * @return void
      */
-    public static function desactive() {
+    public function desactive() {
         new Uninstall;
     }
 }

@@ -12,4 +12,4 @@ defined( 'ABSPATH' ) || exit;
 
 if ( ! function_exists( 'add_action' ) ) exit;
 
-require 'Hooks/Hooks.php';
+require 'Core/Actions.php';

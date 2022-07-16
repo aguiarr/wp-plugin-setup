@@ -1,9 +1,9 @@
 <?php
 
-namespace WPT\Hooks;
+namespace WPT\Core;
 
 /**
- * Name: Hooks
+ * Name: Actions
  * Call the actions and filters
  * @package Hooks
  * @since 1.0.0
