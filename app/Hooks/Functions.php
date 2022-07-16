@@ -33,35 +33,7 @@ class Functions
 
         new Menus();
 
-        self::enqueue_admin_scripts();
         register_deactivation_hook( __FILE__, self::desactive() );
-    }
-
-    /**
-     * Load admin scripts
-     * @since 1.0.0
-     * @return void
-     */
-    public static function enqueue_admin_scripts() 
-    {
-        wp_enqueue_script( 'admin', Config::__dist( 'admin.js' ) );
-        wp_enqueue_style( 'admin', Config::__dist( 'admin.css' ) );
-        wp_enqueue_style( 'fontawesome', "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" );
-    }
-
-    /**
-     * Load theme scripts
-     * @since 1.0.0
-     * @return void
-     */
-    public static function enqueue_theme_scripts() 
-    {
-        if ( ! is_admin() ) {
-            wp_enqueue_script( 'theme', Config::__dist( 'theme.js' ) );
-            wp_enqueue_style( 'theme', Config::__dist( 'theme.css' ) );
-        }
-
-        wp_enqueue_script( 'global', Config::__dist( 'global.js' ) );
     }
 
     /**
@@ -72,7 +44,6 @@ class Functions
     public static function initialize()
     {
         load_plugin_textdomain( WPT_PLUGIN_SLUG , false );
-        self::enqueue_theme_scripts();
     }
 
     /**

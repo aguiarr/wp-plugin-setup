@@ -12,11 +12,36 @@ use WPT\Controllers\Render\Render;
 class About extends Render
 {
     /**
+     * Enqueue custom scripts and styles to the page
+     * @return void
+     */
+    private function enqueue()
+    {
+        $scripts = [
+            [ 
+                'name' => 'wpt-admin',
+                'file' => 'admin.js'
+            ]
+        ];
+
+        $styles  = [
+            [
+                'name' => 'wpt-admin',
+                'file' => 'admin.css'
+            ]
+        ];
+
+        $this->enqueue_styles( $styles );
+        $this->enqueue_scripts( $scripts );
+    }
+    
+    /**
      * Call the view render
      * @return void
      */
     public function request()
     {
-        echo $this->render( 'Admin/about.php', [] );
+        $this->render( 'Admin/about.php', [] );
+        $this->enqueue();
     }
 }

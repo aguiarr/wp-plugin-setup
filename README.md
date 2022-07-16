@@ -1,10 +1,5 @@
 # WordPress Plugin Template
 
-**Production Version:** [1.0.0](https://github.com/codebakerys/wp-plugin-template/releases/tag/1.0.0)
-</br>
-**Developer Version:** [1.0.0-dev](https://github.com/codebakerys/wp-plugin-template/releases/tag/1.0.0-dev)
-</br>
-</br>
 **Description:** Template for WordPress plugins
 
 ## Anchors
