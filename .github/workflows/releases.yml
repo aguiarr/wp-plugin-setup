@@ -27,14 +27,14 @@ jobs:
       run: |
             rm -r resources/scripts
             rm -r resources/styles
-            rm -r resources/*.js
             rm -r node_modules/
             rm -r .cache/
             
     - name: Remove developer files
       run: |
             rm composer.json package.json composer.lock
-            rm README.md .gitignore
+            rm README.md .gitignore tsconfig.json
+            rm -r resources/*.js
             
     - name: Create a new GitHub developer tag
       run: |
