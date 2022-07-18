@@ -34,7 +34,7 @@ jobs:
       run: |
             rm composer.json package.json composer.lock
             rm README.md .gitignore tsconfig.json
-            rm -r resources/*.js
+            rm -r resources/*.ts
             
     - name: Create a new GitHub developer tag
       run: |
