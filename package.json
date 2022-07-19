@@ -20,7 +20,7 @@
     "webpack-cli": "^4.9.2"
   },
   "scripts": {
-    "build": "parcel build ./resources/* --public-url ./",
+    "build": "parcel build ./resources/scripts/**/pages/**/*.ts ./resources/styles/**/index.scss .images/* --public-url ./",
     "dev": "parcel watch ./resources/* --public-url ./",
     "i18n:textdomain": "wpi18n addtextdomain --exclude=dist,node_modules,resources,tests,vendor",
     "i18n:pot": "wpi18n makepot --exclude=dist,node_modules,resources,tests,vendor"
