@@ -43,7 +43,7 @@ abstract class Render implements InterfaceRender
     private function enqueue_default()
     {
         $this->enqueue_styles( [ 'name' => 'fontawesome', 'external' => 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css' ] );
-        $this->enqueue_styles( [ 'name' => 'global', 'file' => 'global/index.css' ] );
+        $this->enqueue_styles( [ 'name' => 'global', 'file' => 'styles/global/index.css' ] );
     }
 
 
