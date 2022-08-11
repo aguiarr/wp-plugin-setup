@@ -25,5 +25,5 @@ Initial setup for wordpress plugin
 
 == Changelog ==
 
-= 1.0.0 = 2021-08-09
+= 1.0.0 = 22022-08-11
 * Initial Release 
