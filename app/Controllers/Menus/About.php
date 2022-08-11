@@ -17,22 +17,8 @@ class About extends Render
      */
     private function enqueue()
     {
-        $scripts = [
-            [ 
-                'name' => 'wpt-admin',
-                'file' => 'admin.js'
-            ]
-        ];
-
-        $styles  = [
-            [
-                'name' => 'wpt-admin',
-                'file' => 'admin.css'
-            ]
-        ];
-
-        $this->enqueue_styles( $styles );
-        $this->enqueue_scripts( $scripts );
+        $this->enqueue_scripts( [ 'name' => 'wpt-admin', 'file' => 'admin/pages/About/index.css' ] );
+        $this->enqueue_styles( [ 'name' => 'wpt-admin', 'file' => 'admin/pages/About/index.css' ] );
     }
     
     /**

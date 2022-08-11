@@ -19,12 +19,10 @@ abstract class Render implements InterfaceRender
      * @param array $scripts
      * @return void
      */
-    protected function enqueue_scripts( $scripts )
+    protected function enqueue_scripts( $script )
     {
-        foreach( $scripts as $script ) {
-            $link = isset( $script['external'] ) ? $script['external'] : Config::__dist( $script['file'] );
-            wp_enqueue_script( $script['name'], $link );
-        }
+        $link = isset( $script['external'] ) ? $script['external'] : Config::__dist( $script['file'] );
+        wp_enqueue_script( $script['name'], $link );
     }
 
     /**
@@ -32,12 +30,10 @@ abstract class Render implements InterfaceRender
      * @param array $styles
      * @return void
      */
-    protected function enqueue_styles( $styles )
+    protected function enqueue_styles( $style )
     {
-        foreach( $styles as $style ) {
-            $link = isset( $style['external'] ) ? $style['external'] : Config::__dist( $style['file'] );
-            wp_enqueue_style( $style['name'], $link );
-        }
+        $link = isset( $style['external'] ) ? $style['external'] : Config::__dist( $style['file'] );
+        wp_enqueue_style( $style['name'], $link );
     }
 
     /**
@@ -46,22 +42,8 @@ abstract class Render implements InterfaceRender
      */
     private function enqueue_default()
     {
-        $scripts = [
-            [ 
-                'name' => 'global',
-                'file' => 'global.js'
-            ]
-        ];
-
-        $styles = [
-            [ 
-                'name' => 'fontawesome', 
-                'external' => 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css' 
-            ]
-        ];
-
-        $this->enqueue_styles( $styles );
-        $this->enqueue_scripts( $scripts );
+        $this->enqueue_styles( [ 'name' => 'fontawesome', 'external' => 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css' ] );
+        $this->enqueue_styles( [ 'name' => 'global', 'file' => 'global/index.css' ] );
     }
 
 
