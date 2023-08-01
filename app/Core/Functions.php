@@ -37,7 +37,7 @@ class Functions
         if ($name === config()->fileBase()) {
 
             $label = sprintf(
-                '<a href="admin.php?page=wc-plugin-template" id="deactivate-wc-plugin-template" aria-label="%s">%s</a>',
+                '<a href="admin.php?page=wc-plugin-template-settings" id="deactivate-wc-plugin-template" aria-label="%s">%s</a>',
                 __('Settings', 'wc-plugin-template'),
                 __('Settings', 'wc-plugin-template')
             );
