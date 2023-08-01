@@ -1,15 +1,17 @@
 <?php
 
-namespace WPT;
+namespace WCCoreios;
 
-// Define names
-define( 'WPT_PLUGIN_NAME', 'WordPress Plugin Template' );
-define( 'WPT_PLUGIN_SLUG', 'wp-plugin-template' );
-define( 'WPT_PLUGIN_PREFIX', 'wpt' );
-define( 'WPT_PLUGIN_NAMESPACE', 'WPT' );
+// Define global constants
+define('WP_PLUGIN_NAME', __('Plugin Template', 'wp-plugin-template'));
+define('WP_PLUGIN_SLUG', 'wp-plugin-template');
+define('WP_PLUGIN_NAMESPACE', 'WPlugin');
+define('WP_PLUGIN_PREFIX', 'wpt');
 
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
-if ( ! function_exists( 'add_action' ) ) exit;
+if (!function_exists('add_action')) {
+    exit;
+}
 
-require 'Core/Actions.php';
+require_once 'Core/Actions.php';

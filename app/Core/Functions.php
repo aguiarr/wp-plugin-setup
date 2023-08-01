@@ -1,69 +1,122 @@
 <?php
 
-namespace WPT\Core;
+namespace WPlugin\Core;
 
-use WPT\Model\Database\Bootstrap;
-use WPT\Controllers\Menus;
-use WPT\Helpers\Config;
-use WPT\Core\Uninstall;
+use WPlugin\Model\Infrastructure\Bootstrap;
+use WPlugin\Services\WooCommerce\WooCommerce;
+use WPlugin\Controllers\Menus;
 
-/**
- * Name: Function
- * Handle the hooks functions
- * @package Core
- * @since 1.0.0
- */
 class Functions
 {
-    /**
-     * Create admin menu
-     * @since 1.0.0
-     * @return void
-     */
-    public function create_admin_menu()
+    public static function initialize(): void
     {
-        add_menu_page(
-            WPT_PLUGIN_NAME, 
-            WPT_PLUGIN_NAME,
-            'read',
-            WPT_PLUGIN_SLUG,
-            false,
-            'dashicons-buddicons-community'
-        );
-
-        new Menus();
-
-        register_deactivation_hook( __FILE__, self::desactive() );
+        load_plugin_textdomain(WP_PLUGIN_SLUG, false);
     }
 
-    /**
-     * Initialize plugin
-     * @since 1.0.0
-     * @return void
-     */
-    public function initialize()
-    {
-        load_plugin_textdomain( WPT_PLUGIN_SLUG , false );
-    }
 
-    /**
-     * Activate plugin
-     * @since 1.0.0
-     * @return void|bool
-     */
-    public function activate( $plugin )
+    public static function createAdminMenu(): void
     {
-        if ( Config::__base() === $plugin ) {
-            new Bootstrap;
+        if (empty(self::getMissingDependencies())) {
+            $menus = new Menus();
+            $menus->initializeMenus();
         }
     }
 
-    /**
-     * Desactive the plugin
-     * @since 1.0.0
-     * @return void
-     */
-    public function desactive() {
-        new Uninstall;
+
+    public static function woocommerce(): void
+    {
+        if (class_exists('WooCommerce')) {
+            $woocommerce = new WooCommerce;
+            $woocommerce->inicializeWocommerce();
+        }
     }
+
+
+    public static function setSettingsLink(array $arr, string $name): array
+    {
+        if ($name === config()->fileBase()) {
+
+            $label = sprintf(
+                '<a href="admin.php?page=wc-plugin-template" id="deactivate-wc-plugin-template" aria-label="%s">%s</a>',
+                __('Settings', 'wc-plugin-template'),
+                __('Settings', 'wc-plugin-template')
+            );
+
+            $arr['settings'] = $label;
+        }
+
+        return $arr;
+    }
+
+    public static function activationFunction(string $plugin): void
+    {
+        if (config()->fileBase() === $plugin) {
+            $boot = new Bootstrap;
+            $boot->initialize();
+        }
+    }
+
+    public static function desactivationFunction(): void
+    {
+        if (!current_user_can('activate_plugins')) {
+            return;
+        }
+
+        $action = isset($_REQUEST['action']) ? $_REQUEST['action'] : false;
+        $plugin = isset($_REQUEST['plugin']) ? $_REQUEST['plugin'] : false;
+
+        if ($action === 'deactivate' && $plugin === config()->fileBase()) {
+            $uninstall = new Uninstall;
+            $uninstall->reset();
+        }
+    }
+
+    public static function checkMissingDependencies(): void
+    {
+        $missingDependencies = self::getMissingDependencies();
+
+        if (is_array($missingDependencies) && !empty($missingDependencies)) {
+            add_action('admin_notices', [
+                Functions::class, 'displayDependencyNotice'
+            ]);
+        }
+    }
+
+    public static function getMissingDependencies(): array
+    {
+        $plugins = wp_get_active_and_valid_plugins();
+
+        $neededs = [
+            'WooCommerce' => config()->dinamicDir( __DIR__, 3 ) . '/woocommerce/woocommerce.php'
+        ];
+
+        foreach ($neededs as $key => $needed ) {
+            if ( in_array( $needed, $plugins ) ) {
+                unset( $neededs[$key] );
+            }
+        }
+
+        return $neededs;
+    }
+
+    public static function displayDependencyNotice(): void
+    {
+        $class = 'notice notice-error';
+        $title = __('WordPress Plugin Template', 'wc-plugin-template');
+
+        $message = __(
+            'This plugin needs the following plugins to work properly:',
+            'wc-plugin-template'
+        );
+
+        $keys = array_keys(self::getMissingDependencies());
+        printf(
+            '<div class="%1$s"><p><strong>%2$s</strong> - %3$s <strong>%4$s</strong>.</p></div>',
+            esc_attr($class),
+            esc_html($title),
+            esc_html($message),
+            esc_html(implode(', ', $keys))
+        );
+    }
+
 }

@@ -1,30 +1,11 @@
 <?php
 
-namespace WPT\Core;
+namespace WPlugin\Core;
 
-use WPT\Model\Database\Bootstrap;
-
-/**
- * Name: Uninstall
- * Remove all tables and plugin data
- * @package Helper
- * @since 1.0.0
- */
-class Uninstall 
+class Uninstall
 {
-    public function __construct()
+    public function reset(): void
     {
-        $this->removeTables();
-    }
-    
-    /**
-     * Remove all tables created by the plugin
-     * @since 1.0.0
-     * @return void
-     */
-    private static function removeTables()
-    {
-        $boot = new Bootstrap;
-        $boot->unistall();
+        // Call the uninstall methods
     }
 }
