@@ -64,96 +64,111 @@ yarn build
 ├── app
 │   ├── Controllers
 │   │   ├── Entities
+│   │   │   └── Settings.php
 │   │   ├── Menus
-│   │   │   └── About.php
+│   │   │   └── Settings.php
 │   │   ├── Menus.php
-│   │   ├── Pages
-│   │   ├── Render
-│   │   │   ├── InterfaceRender.php
-│   │   │   └── Render.php
-│   │   └── WordPress
-│   │       ├── Option.php
-│   │       └── PostMeta.php
-│   ├── Helpers
+│   │   ├── Notification.php
+│   │   └── Render
+│   │       ├── AbstractRender.php
+│   │       └── InterfaceRender.php
+│   ├── Core
+│   │   ├── Actions.php
 │   │   ├── Config.php
-│   │   ├── Uninstall.php
-│   │   └── Utils.php
-│   ├── Hooks
+│   │   ├── Export.php
 │   │   ├── Functions.php
-│   │   └── Hooks.php
+│   │   └── Uninstall.php
+│   ├── Exceptions
+│   ├── Helpers
+│   │   └── Helper.php
 │   ├── index.php
 │   ├── Model
-│   │   ├── Database
+│   │   ├── Entity
+│   │   │   └── Settings.php
+│   │   ├── Entity.php
+│   │   ├── Infrastructure
 │   │   │   ├── Bootstrap.php
+│   │   │   ├── Table.php
 │   │   │   └── Tables
-│   │   │       └── Example.php
-│   │   └── Example.php
+│   │   │       └── Settings.php
+│   │   ├── InterfaceRepository.php
+│   │   ├── Repository
+│   │   │   └── Settings.php
+│   │   └── Repository.php
 │   ├── Services
+│   │   └── WooCommerce
+│   │       ├── Checkout
+│   │       ├── Logs
+│   │       │   └── Logger.php
+│   │       ├── Orders
+│   │       ├── Thankyou
+│   │       ├── Webhooks
+│   │       ├── Webhooks.php
+│   │       └── WooCommerce.php
 │   └── Views
 │       ├── Admin
-│       │   ├── about.php
-│       │   └── template-parts
-│       │       ├── footer.php
-│       │       └── header.php
+│       │   ├── notifications
+│       │   └── settings
+│       │       └── index.php
 │       └── Pages
-│           └── template-parts
-│               ├── footer.php
-│               └── header.php
+├── assets
+│   ├── images
+│   │   └── icons
+│   ├── scripts
+│   │   ├── admin
+│   │   │   ├── components
+│   │   │   │   ├── Ajax
+│   │   │   │   │   └── index.ts
+│   │   │   │   ├── Mutations
+│   │   │   │   ├── Notification
+│   │   │   │   │   └── index.ts
+│   │   │   │   └── Popup
+│   │   │   │       └── index.ts
+│   │   │   └── pages
+│   │   │       └── settings
+│   │   │           └── index.ts
+│   │   ├── global
+│   │   │   └── components
+│   │   └── theme
+│   │       ├── components
+│   │       └── pages
+│   └── styles
+│       ├── admin
+│       │   ├── base
+│       │   │   ├── index.scss
+│       │   │   └── _vars.scss
+│       │   ├── components
+│       │   │   ├── _container.scss
+│       │   │   └── popup
+│       │   │       └── index.scss
+│       │   ├── index.scss
+│       │   └── pages
+│       │       └── settings
+│       │           └── index.scss
+│       ├── global
+│       │   ├── base
+│       │   │   ├── index.scss
+│       │   │   └── _vars.scss
+│       │   ├── components
+│       │   │   └── index.scss
+│       │   └── index.scss
+│       └── theme
+│           ├── base
+│           │   ├── index.scss
+│           │   └── _vars.scss
+│           ├── components
+│           │   └── index.scss
+│           ├── index.scss
+│           └── pages
+│               ├── checkout
+│               │   └── index.scss
+│               └── thankyou
+│                   └── index.scss
 ├── composer.json
 ├── LICENSE
 ├── package.json
 ├── README.md
 ├── readme.txt
-├── resources
-│   ├── admin.ts
-│   ├── global.ts
-│   ├── images
-│   │   └── cb-icon.png
-│   ├── scripts
-│   │   ├── admin
-│   │   │   ├── components
-│   │   │   │   └── Notification
-│   │   │   │       └── index.ts
-│   │   │   ├── index.ts
-│   │   │   └── pages
-│   │   │       └── About
-│   │   │           └── index.ts
-│   │   ├── global
-│   │   │   ├── components
-│   │   │   │   └── index.ts
-│   │   │   └── index.ts
-│   │   └── theme
-│   │       ├── components
-│   │       │   └── index.ts
-│   │       ├── index.ts
-│   │       └── pages
-│   │           └── index.ts
-│   ├── styles
-│   │   ├── admin
-│   │   │   ├── base
-│   │   │   │   ├── index.scss
-│   │   │   │   └── _vars.scss
-│   │   │   ├── components
-│   │   │   │   ├── _container.scss
-│   │   │   │   ├── index.scss
-│   │   │   │   ├── _notification.scss
-│   │   │   │   └── _title.scss
-│   │   │   └── index.scss
-│   │   ├── global
-│   │   │   ├── base
-│   │   │   │   ├── index.scss
-│   │   │   │   └── _vars.scss
-│   │   │   ├── components
-│   │   │   │   └── index.scss
-│   │   │   └── index.scss
-│   │   └── theme
-│   │       ├── base
-│   │       │   ├── index.scss
-│   │       │   └── _vars.scss
-│   │       ├── components
-│   │       │   └── index.scss
-│   │       └── index.scss
-│   └── theme.ts
 ├── tsconfig.json
 └── wp-plugin-template.php
 
