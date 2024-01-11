@@ -34,7 +34,7 @@ jobs:
 
       - name: Create a new GitHub stage tag
         run: |
-          TAG_VERSION=$(bash .github/tags.sh)
+          TAG_VERSION=$(bash .github/tag.sh)
 
           git config --global user.email "aguiartgv@gmail.com"
           git config --global user.name "Matheus Aguiar"
