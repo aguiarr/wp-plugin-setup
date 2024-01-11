@@ -13,3 +13,14 @@ W
 'app/Model/Infrastructure/Repository.php,3/7/37a73f76003b85ddbc0b10307d3eeef94f8f9319
 O
 app/Model/Entity/TestEntity.php,b/2/b25c928f07e60a44e744d6100d5fd2d5a9a397fe
+:
+
+readme.txt,4/5/451685e9efac4a6dc1fee73ec53ffb6b2c4c38b5
+F
+wp-plugin-template.php,c/8/c8cc87833415c30a9070e3662e45cee63eae7fe3
+F
+app/Helpers/Helper.php,4/d/4d3cbe8ab22bbd2ae60d7650dac9eaa107b443b4
+C
+app/Core/Config.php,6/f/6f06e727dbeb58084c9bec3e09227eeb2cd6181b
+Y
+)app/Controllers/Render/AbstractRender.php,1/b/1b9dc87fa30fc9c66e69e34c1c4662c6ea1fc6bb

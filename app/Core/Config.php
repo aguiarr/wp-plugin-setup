@@ -6,42 +6,42 @@ class Config
 {
     public function distUrl(string $relative = ''): string
     {
-        return plugins_url() . '/' . self::getfileBase() . "/dist/$relative";
+        return plugins_url() . '/' . self::baseFolder() . "/dist/$relative";
     }
 
     public function imageUrl(string $relative = ''): string
     {
-        return plugins_url() . '/' . self::getfileBase() . "/assets/images/$relative";
+        return plugins_url() . '/' . self::baseFolder() . "/assets/images/$relative";
     }
 
     public function assetsUrl(string $relative = ''): string
     {
-        return plugins_url() . '/' . self::getfileBase() . "/assets/$relative";
+        return plugins_url() . '/' . self::baseFolder() . "/assets/$relative";
     }
 
-    public function getassetsUrl(string $relative = ''): string
+    public function viewsDir(string $relative = ''): string
     {
-        return self::dinamicDir() . "/app/Views/$relative";
+        return self::dynamicDir() . "/app/Views/$relative";
     }
 
-    public function dinamicDir(string $dir = __DIR__, int $level = 2): string
+    public function dynamicDir(string $dir = __DIR__, int $level = 2): string
     {
         return dirname($dir, $level);
     }
 
-    public function mainFile(): string
+    public function mainFileDir(): string
     {
-        return self::dinamicDir() . '/' . WP_PLUGIN_SLUG . ".php";
+        return self::dynamicDir() . '/' . WP_PLUGIN_SLUG . ".php";
     }
 
-    public function fileBase(): string
+    public function baseFile(): string
     {
-        return self::getfileBase() . '/' . WP_PLUGIN_SLUG . ".php";
+        return self::baseFolder() . '/' . WP_PLUGIN_SLUG . ".php";
     }
 
-    public function getfileBase(): string
+    public function baseFolder(): string
     {
-        $dir = explode('/', self::dinamicDir());
+        $dir = explode('/', self::dynamicDir());
         return $dir[count($dir) - 1];
     }
 }

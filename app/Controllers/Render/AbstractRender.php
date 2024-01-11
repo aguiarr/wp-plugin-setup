@@ -42,7 +42,7 @@ abstract class AbstractRender implements InterfaceRender
         $template = get_template_directory() . "/wc-plugin-template/$file";
 
         if (!file_exists($template)) {
-            $template = config()->getassetsUrl($file);
+            $template = config()->viewsDir($file);
         }
 
         if (file_exists($template)) {

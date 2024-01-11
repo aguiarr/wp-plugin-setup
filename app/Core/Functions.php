@@ -34,7 +34,7 @@ class Functions
 
     public static function setSettingsLink(array $arr, string $name): array
     {
-        if ($name === config()->fileBase()) {
+        if ($name === config()->baseFile()) {
 
             $label = sprintf(
                 '<a href="admin.php?page=wc-plugin-template-settings" id="deactivate-wc-plugin-template" aria-label="%s">%s</a>',
@@ -50,7 +50,7 @@ class Functions
 
     public static function activationFunction(string $plugin): void
     {
-        if (config()->fileBase() === $plugin) {
+        if (config()->baseFile() === $plugin) {
             $boot = new Bootstrap;
             $boot->initialize();
         }
@@ -65,7 +65,7 @@ class Functions
         $action = isset($_REQUEST['action']) ? $_REQUEST['action'] : false;
         $plugin = isset($_REQUEST['plugin']) ? $_REQUEST['plugin'] : false;
 
-        if ($action === 'deactivate' && $plugin === config()->fileBase()) {
+        if ($action === 'deactivate' && $plugin === config()->baseFile()) {
             $uninstall = new Uninstall;
             $uninstall->reset();
         }
@@ -87,7 +87,7 @@ class Functions
         $plugins = wp_get_active_and_valid_plugins();
 
         $neededs = [
-            'WooCommerce' => config()->dinamicDir( __DIR__, 3 ) . '/woocommerce/woocommerce.php'
+            'WooCommerce' => config()->dynamicDir( __DIR__, 3 ) . '/woocommerce/woocommerce.php'
         ];
 
         foreach ($neededs as $key => $needed ) {
