@@ -2,7 +2,6 @@
   "name": "wp-plugin-template",
   "version": "1.0.0",
   "description": "Initial setup for wordpress plugin",
-  "main": "index.js",
   "repository": "https://github.com/devaguia/wp-plugin-template",
   "author": "Matheus Aguiar",
   "license": "GPL-3.0",
