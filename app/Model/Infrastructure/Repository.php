@@ -123,7 +123,7 @@ abstract class Repository
 			$next    = min(($current + 1), $pages);
 
 			return [
-				'pages'    => $pages,
+				'menus'    => $pages,
 				'current'  => $current,
 				'previous' => $previous,
 				'next'     => $next,

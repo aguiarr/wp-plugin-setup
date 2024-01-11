@@ -10,8 +10,8 @@ class Settings extends AbstractRender
 
     public function enqueue(): void
     {
-        $this->enqueueScripts(['name' => 'settings', 'file' => 'scripts/admin/pages/settings/index.js']);
-        $this->enqueueStyles(['name' => 'settings', 'file' => 'styles/admin/pages/settings/index.css']);
+        $this->enqueueScripts(['name' => 'settings', 'file' => 'scripts/admin/menus/settings/index.js']);
+        $this->enqueueStyles(['name' => 'settings', 'file' => 'styles/admin/menus/settings/index.css']);
     }
 
     public function request(): void
