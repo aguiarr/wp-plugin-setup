@@ -32,3 +32,13 @@ F
 app/Core/Functions.php,e/5/e55b3f858f75936d226fb9541f31a2fd4cd6b763
 X
 (app/Services/WooCommerce/WooCommerce.php,b/c/bccca52a73ef03bf6e96a8b3c2a262d025737173
+P
+ app/Controllers/Notification.php,8/d/8dd441bd925dfb7449dc11d9160a52d786699515
+R
+"app/Controllers/Menus/Settings.php,d/7/d79bbe428041c0020a88ee36393ebc3d5ce8f957
+U
+%app/Controllers/Entities/Settings.php,5/c/5c802587ab6895ca4a9ef5ef3cee4bc5f8250882
+E
+app/Helpers/Utils.php,6/2/629dc5915b089ab5c94fbececb1ba976d41105d2
+B
+app/Core/Utils.php,1/3/1314cd44e720a9c95fe38d232ffdf46f7618b71f

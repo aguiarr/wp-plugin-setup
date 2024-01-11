@@ -17,8 +17,8 @@ class Settings extends AbstractRender
     public function request(): void
     {
         $this->enqueue();
-        
+
         $this->fields = [];
-        echo $this->render('Admin/settings/index.php', $this->fields);
+        echo $this->render('Admin/menus/settings/index.php', $this->fields);
     }
 }
