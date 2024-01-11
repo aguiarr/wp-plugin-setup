@@ -2,7 +2,6 @@
 
 namespace WPlugin\Core;
 
-use WPlugin\Model\Infrastructure\Bootstrap;
 use WPlugin\Services\WooCommerce\WooCommerce;
 use WPlugin\Controllers\Menus;
 
@@ -51,7 +50,7 @@ class Functions
     public static function activationFunction(string $plugin): void
     {
         if (config()->baseFile() === $plugin) {
-            $boot = new Bootstrap;
+            $boot = new \WPlugin\Model\Bootstrap();
             $boot->initialize();
         }
     }
@@ -62,8 +61,8 @@ class Functions
             return;
         }
 
-        $action = isset($_REQUEST['action']) ? $_REQUEST['action'] : false;
-        $plugin = isset($_REQUEST['plugin']) ? $_REQUEST['plugin'] : false;
+        $action = $_REQUEST['action'] ?? false;
+        $plugin = $_REQUEST['plugin'] ?? false;
 
         if ($action === 'deactivate' && $plugin === config()->baseFile()) {
             $uninstall = new Uninstall;

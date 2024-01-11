@@ -24,7 +24,7 @@ class Export
 
     private function checkOverwrittenTemplates(): bool
     {
-        return isdinamicDir(get_templatedinamicDirectory() . "/wc-plugin-template/");
+        return isdinamicDir(get_templatedinamicDirectory() . config()->baseFolder() . '/');
     }
 
     private function getSiteActiveTheme(): array

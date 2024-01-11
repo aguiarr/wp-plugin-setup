@@ -24,3 +24,11 @@ C
 app/Core/Config.php,6/f/6f06e727dbeb58084c9bec3e09227eeb2cd6181b
 Y
 )app/Controllers/Render/AbstractRender.php,1/b/1b9dc87fa30fc9c66e69e34c1c4662c6ea1fc6bb
+D
+app/Core/Actions.php,9/b/9bf038e1ca1bfb56999e116597aab704a84b1f62
+C
+app/Core/Export.php,e/f/ef9c19a807abfd3af4ef888078259581ad2eac22
+F
+app/Core/Functions.php,e/5/e55b3f858f75936d226fb9541f31a2fd4cd6b763
+X
+(app/Services/WooCommerce/WooCommerce.php,b/c/bccca52a73ef03bf6e96a8b3c2a262d025737173
