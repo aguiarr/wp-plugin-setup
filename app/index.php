@@ -1,6 +1,6 @@
 <?php
 
-namespace WCCoreios;
+namespace WPlugin;
 
 // Define global constants
 define('WP_PLUGIN_NAME', __('Plugin Template', 'wp-plugin-template'));
