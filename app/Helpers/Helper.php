@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-if (!function_exists('config')) {
-    function config()
+if (!function_exists('wptConfig')) {
+    function wptConfig()
     {
         return new \WPlugin\Core\Config();
     }
 }
 
-if (!function_exists('utils')) {
-    function utils()
+if (!function_exists('wptUtils')) {
+    function wptUtils()
     {
         return new \WPlugin\Core\Utils();
     }

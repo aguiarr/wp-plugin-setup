@@ -9,10 +9,10 @@ class Utils
         extract($data);
         ob_start();
 
-        $template = get_template_directory() . "/". config()->baseFolder() ."/$file";
+        $template = get_template_directory() . "/". wptConfig()->baseFolder() ."/$file";
 
         if (!file_exists($template)) {
-            $template = config()->viewsDir($file);
+            $template = wptConfig()->viewsDir($file);
         }
 
         if (file_exists($template)) {

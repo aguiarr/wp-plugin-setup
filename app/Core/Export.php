@@ -24,7 +24,7 @@ class Export
 
     private function checkOverwrittenTemplates(): bool
     {
-        return isdinamicDir(get_templatedinamicDirectory() . config()->baseFolder() . '/');
+        return isdinamicDir(get_templatedinamicDirectory() . wptConfig()->baseFolder() . '/');
     }
 
     private function getSiteActiveTheme(): array
