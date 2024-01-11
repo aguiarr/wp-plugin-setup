@@ -2,11 +2,16 @@
 
 declare(strict_types=1);
 
-use WPlugin\Core\Config;
-
-if (!function_exists('config')) {
-    function config()
+if (!function_exists('wptConfig')) {
+    function wptConfig()
     {
-        return new Config;
+        return new \WPlugin\Core\Config();
+    }
+}
+
+if (!function_exists('wptUtils')) {
+    function wptUtils()
+    {
+        return new \WPlugin\Core\Utils();
     }
 }

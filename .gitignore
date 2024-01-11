@@ -3,6 +3,8 @@ vendor/
 dist/
 node_modules/
 .cache/
+.parcel-cache/
+.idea/
 
 # ignore files
 *.lock

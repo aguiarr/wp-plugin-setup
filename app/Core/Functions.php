@@ -2,7 +2,7 @@
 
 namespace WPlugin\Core;
 
-use WPlugin\Model\Infrastructure\Bootstrap;
+use WPlugin\API\Routes;
 use WPlugin\Services\WooCommerce\WooCommerce;
 use WPlugin\Controllers\Menus;
 
@@ -27,14 +27,14 @@ class Functions
     {
         if (class_exists('WooCommerce')) {
             $woocommerce = new WooCommerce;
-            $woocommerce->inicializeWocommerce();
+            $woocommerce->inicializeWooommerce();
         }
     }
 
 
     public static function setSettingsLink(array $arr, string $name): array
     {
-        if ($name === config()->fileBase()) {
+        if ($name === wptConfig()->baseFile()) {
 
             $label = sprintf(
                 '<a href="admin.php?page=wc-plugin-template-settings" id="deactivate-wc-plugin-template" aria-label="%s">%s</a>',
@@ -50,8 +50,8 @@ class Functions
 
     public static function activationFunction(string $plugin): void
     {
-        if (config()->fileBase() === $plugin) {
-            $boot = new Bootstrap;
+        if (wptConfig()->baseFile() === $plugin) {
+            $boot = new \WPlugin\Model\Bootstrap();
             $boot->initialize();
         }
     }
@@ -62,10 +62,10 @@ class Functions
             return;
         }
 
-        $action = isset($_REQUEST['action']) ? $_REQUEST['action'] : false;
-        $plugin = isset($_REQUEST['plugin']) ? $_REQUEST['plugin'] : false;
+        $action = $_REQUEST['action'] ?? false;
+        $plugin = $_REQUEST['plugin'] ?? false;
 
-        if ($action === 'deactivate' && $plugin === config()->fileBase()) {
+        if ($action === 'deactivate' && $plugin === wptConfig()->baseFile()) {
             $uninstall = new Uninstall;
             $uninstall->reset();
         }
@@ -87,7 +87,7 @@ class Functions
         $plugins = wp_get_active_and_valid_plugins();
 
         $neededs = [
-            'WooCommerce' => config()->dinamicDir( __DIR__, 3 ) . '/woocommerce/woocommerce.php'
+            'WooCommerce' => wptConfig()->dynamicDir( __DIR__, 3 ) . '/woocommerce/woocommerce.php'
         ];
 
         foreach ($neededs as $key => $needed ) {
@@ -119,4 +119,9 @@ class Functions
         );
     }
 
+    public static function registerRestAPI(): void
+    {
+        $routes = new Routes();
+        $routes->register();
+    }
 }
