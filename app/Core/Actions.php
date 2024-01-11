@@ -36,3 +36,9 @@ add_filter('plugin_action_links', [
     Functions::class,
     'setSettingsLink'
 ], 10, 2);
+
+add_action( 'rest_api_init', [
+    Functions::class,
+    'registerRestAPI'
+]);
+

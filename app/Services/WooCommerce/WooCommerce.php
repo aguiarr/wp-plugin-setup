@@ -12,9 +12,9 @@ class WooCommerce
 
     public function setOverwrittenWoocommerceTemplates($template, $templateName, $template_path)
     {
-        $atlasTemplateDir = config()->viewsDir() . 'WooCommerce/';
+        $templateDir = config()->viewsDir() . 'WooCommerce/';
 
-        $path = $atlasTemplateDir . $templateName;
+        $path = $templateDir . $templateName;
 
         return file_exists($path) ? $path : $template;
     }

@@ -2,6 +2,7 @@
 
 namespace WPlugin\Core;
 
+use WPlugin\API\Routes;
 use WPlugin\Services\WooCommerce\WooCommerce;
 use WPlugin\Controllers\Menus;
 
@@ -118,4 +119,9 @@ class Functions
         );
     }
 
+    public static function registerRestAPI(): void
+    {
+        $routes = new Routes();
+        $routes->register();
+    }
 }
