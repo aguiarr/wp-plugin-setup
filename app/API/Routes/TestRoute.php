@@ -6,20 +6,17 @@ class TestRoute extends Route
 {
     public function __construct()
     {
-        $this->setNamespace('test');
+        $this->setNamespace();
         $this->registerRoute(
-            'hello',
-            [$this, 'hello'],
-            ['POST']
+            'ping',
+            [$this, 'pong'],
         );
     }
 
-    public function create(object $data)
+    public function pong(object $data)
     {
         $this->sendJsonResponse(
-            "Hello Word!",
-            true,
-            200
+            "pong!",
         );
 
     }

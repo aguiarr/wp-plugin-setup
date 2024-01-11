@@ -40,9 +40,13 @@ abstract class Route
 		return $this->namespace;
 	}
 
-	protected function setNamespace(string $namespace): void
+	protected function setNamespace(string $namespace = ''): void
 	{
-		$this->namespace = WP_PLUGIN_SLUG . "/$namespace";
+		$this->namespace = WP_PLUGIN_SLUG;
+
+        if ($namespace) {
+            $this->namespace .= "/$namespace";
+        }
 	}
 
 }
