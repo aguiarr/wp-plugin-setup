@@ -26,7 +26,7 @@ class Functions
     {
         if (class_exists('WooCommerce')) {
             $woocommerce = new WooCommerce;
-            $woocommerce->inicializeWocommerce();
+            $woocommerce->inicializeWooommerce();
         }
     }
 
