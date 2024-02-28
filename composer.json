@@ -8,9 +8,6 @@
       "issues": "https://github.com/devaguia/wp-plugin-template/issues",
       "source": "https://github.com/devaguia/wp-plugin-template"
     },
-    "scripts": {
-      "test": "./vendor/bin/pest"
-    },
     "keywords": [
       "wordpress",
       "plugin",
@@ -20,7 +17,7 @@
     "authors": [
       {
         "name": "Matheus Aguiar",
-        "email": "aguiartgv@gmail.com"
+        "email": "matheus@aguia.dev"
       }
     ],
     "autoload": {
@@ -30,15 +27,6 @@
       "files": [
         "app/Helpers/Helper.php"
       ]
-    },
-    "require-dev": {
-      "pestphp/pest": "^2.9",
-      "pestphp/pest-plugin-faker": "^2.0"
-    },
-    "config": {
-      "allow-plugins": {
-        "pestphp/pest-plugin": true
-      }
     }
   }
   
