@@ -2,7 +2,7 @@
 
 namespace WPlugin\Services\WooCommerce;
 
-class WooCommerce
+final class WooCommerce
 {
     public function inicializeWooommerce(): void
     {

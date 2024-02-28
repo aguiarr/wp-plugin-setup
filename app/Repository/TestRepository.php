@@ -1,21 +1,22 @@
 <?php
 
-namespace WPlugin\Model\Repository;
+namespace WPlugin\Repository;
 
-use WPlugin\Model\Infrastructure\Entity;
-use WPlugin\Model\Infrastructure\Repository;
-use WPlugin\Model\Infrastructure\TestEntity;
+use WPlugin\Infrastructure\Model;
+use WPlugin\Infrastructure\Repository;
+use WPlugin\Model\TestModel;
 
-class TestRepository extends Repository
+
+final class TestRepository extends Repository
 {
 	public function __construct()
 	{
 		parent::__construct('template_plugin');
 	}
 
-	protected function fill(\stdClass $row): TestEntity
+	protected function fill(\stdClass $row): TestModel
 	{
-		$entity = new TestEntity($row->label);
+		$entity = new TestModel($row->label);
 
 		$entity->setId($row->id);
 		$entity->setUpdatedAt(new \DateTime($row->updated_at));
@@ -24,7 +25,7 @@ class TestRepository extends Repository
 		return $entity;
 	}
 
-	public function remove(Entity|TestEntity $entity): bool
+	public function remove(Model|TestModel $entity): bool
 	{
 		if (!$entity->getId()) {
 			return false;
@@ -42,7 +43,7 @@ class TestRepository extends Repository
 		return true;
 	}
 
-	protected function getEntityData(Entity|TestEntity $entity): array
+	protected function getEntityData(Model|TestModel $entity): array
 	{
 		return [
 			'label' => $entity->getLabel()

@@ -13,7 +13,7 @@ Duplicate your images as many times as you want.
 == Description ==
 Initial setup for wordpress plugin
 
-= Requisitos =
+= Requirements =
 
 - PHP versão 7.4 ou superior.
 

@@ -2,12 +2,12 @@
 
 namespace WPlugin\Controllers;
 
-class Menus {
+final class Menus {
     
     private function defineMenus(): array
     {
         return [
-            ['Settings', __('About me', 'wc-plugin-template')]
+            ['Settings', __('About me', 'wp-plugin-template')]
         ];
     }
 
@@ -19,10 +19,10 @@ class Menus {
         foreach ($controllers as $key => $controller) {
 
             $slug     = $this->getMenuSlug($controller[0]);
-            $function = WP_PLUGIN_NAMESPACE . "\\Controllers\\Menus\\$controller[0]";
+            $function = wptConfig()->pluginNamespace() . "\\Controllers\\Menus\\$controller[0]";
             $menu     = [
                 'title'    => $controller[1],
-                'slug'     => 'wc-plugin-template-' . $slug,
+                'slug'     => 'wp-plugin-template-' . $slug,
                 'function' => [new $function, 'request'],
                 'position' => $key
             ];
@@ -58,17 +58,17 @@ class Menus {
     private function createMenus(array $menus): void
     {
         add_menu_page(
-            WP_PLUGIN_NAME,
-            WP_PLUGIN_NAME,
+            wptConfig()->menuName(),
+            wptConfig()->menuName(),
             'read',
-            WP_PLUGIN_SLUG,
+            wptConfig()->pluginSlug(),
             false,
             'dashicons-carrot'
         );
         
         foreach ( $menus as $menu ) {
             add_submenu_page(
-                WP_PLUGIN_SLUG ,
+                wptConfig()->pluginSlug() ,
                 $menu['title'],
                 $menu['title'],
                 'manage_options',
@@ -78,7 +78,7 @@ class Menus {
             );
         }
 
-        ## Remove default submenu
-        remove_submenu_page(WP_PLUGIN_SLUG ,WP_PLUGIN_SLUG);
+        // Remove default submenu
+        remove_submenu_page(wptConfig()->pluginSlug() ,wptConfig()->pluginSlug());
     }
 }

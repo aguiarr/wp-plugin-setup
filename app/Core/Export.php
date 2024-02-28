@@ -2,7 +2,7 @@
 
 namespace WPlugin\Core;
 
-class Export
+final class Export
 {
     private array $data;
 

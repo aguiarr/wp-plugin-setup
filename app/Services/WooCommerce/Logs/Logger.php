@@ -4,7 +4,7 @@ namespace WPlugin\Services\WooCommerce\Logs;
 
 use WC_Logger;
 
-class Logger
+final class Logger
 {
   private WC_Logger $wc;
   private string $prefix;
@@ -14,25 +14,25 @@ class Logger
   {
     $this->wc      = new WC_Logger();
     $this->enabled = $enabled;
-    $this->prefix  = WP_PLUGIN_SLUG;
+    $this->prefix  = wplConfig()->pluginSlug();
   }
 
-  public function add($var, string $type = 'request'): void
+  public function add($var, string $type = 'database'): void
   {
     switch ($type) {
       case 'error':
         $log   = "{$this->prefix}-error";
-        $title = '--- PAGAR.ME PAYMENTS ERROR LOG ---';
+        $title = '--- ERROR LOG ---';
         break;
 
       case 'success':
         $log   = "{$this->prefix}-success";
-        $title = '--- PAGAR.ME PAYMENTS SUCCESS LOG ---';
+        $title = '--- SUCCESS LOG ---';
         break;
 
       default:
-        $log   = "{$this->prefix}-request";
-        $title = '--- PAGAR.ME PAYMENTS REQUEST LOG ---';
+        $log   = "{$this->prefix}-database";
+        $title = '--- REQUEST LOG ---';
         break;
     }
 

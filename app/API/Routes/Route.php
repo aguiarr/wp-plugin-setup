@@ -14,6 +14,7 @@ abstract class Route
 		    'permission_callback' => '__return_true',
 		] );
 	}
+	
 	protected function sendJsonResponse(string $message = '', bool $success = true, int $code = 200, array $data = [])
 	{
 		$args = [
@@ -42,11 +43,34 @@ abstract class Route
 
 	protected function setNamespace(string $namespace = ''): void
 	{
-		$this->namespace = WP_PLUGIN_SLUG;
+		$this->namespace = wptConfig()->pluginSlug();
 
         if ($namespace) {
             $this->namespace .= "/$namespace";
         }
+	}
+
+
+	protected function validateAuthentication(array $headers): void
+	{
+		$logged = false;
+
+		if (isset($headers['authorization']) && is_array($headers['authorization'])) {
+			$auth = array_shift($headers['authorization']);
+			$basic = explode(':', base64_decode(str_replace('Basic ', '', $auth)));
+
+			if (is_array($basic) && count($basic) === 2) {
+				$logged = wp_login( $basic[0], $basic[1]);
+			}
+		}
+
+		if (!$logged) {
+			$this->sendJsonResponse(
+				__('User not authorized! Please, contact the site adminstrator.'),
+				false,
+				401
+			);
+		}
 	}
 
 }

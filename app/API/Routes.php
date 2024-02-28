@@ -3,7 +3,7 @@
 namespace WPlugin\API;
 use WPlugin\API\Routes\TestRoute;
 
-class Routes
+final class Routes
 {
 	public function register()
 	{

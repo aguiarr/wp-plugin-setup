@@ -4,7 +4,7 @@ namespace WPlugin\Controllers\Menus;
 
 use WPlugin\Controllers\Render\AbstractRender;
 
-class Settings extends AbstractRender
+final class Settings extends AbstractRender
 {
     private array $fields;
 

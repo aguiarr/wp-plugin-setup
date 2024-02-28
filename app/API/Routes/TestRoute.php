@@ -2,7 +2,7 @@
 
 namespace WPlugin\API\Routes;
 
-class TestRoute extends Route
+final class TestRoute extends Route
 {
     public function __construct()
     {

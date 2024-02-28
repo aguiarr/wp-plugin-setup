@@ -2,26 +2,26 @@
 
 namespace WPlugin\Core;
 
-class Config
+final class Config
 {
     public function distUrl(string $relative = ''): string
     {
-        return plugins_url() . '/' . self::baseFolder() . "/dist/$relative";
+        return plugins_url() . '/' . $this->baseFolder() . "/dist/$relative";
     }
 
     public function imageUrl(string $relative = ''): string
     {
-        return plugins_url() . '/' . self::baseFolder() . "/assets/images/$relative";
+        return plugins_url() . '/' . $this->baseFolder() . "/assets/images/$relative";
     }
 
     public function assetsUrl(string $relative = ''): string
     {
-        return plugins_url() . '/' . self::baseFolder() . "/assets/$relative";
+        return plugins_url() . '/' . $this->baseFolder() . "/assets/$relative";
     }
 
     public function viewsDir(string $relative = ''): string
     {
-        return self::dynamicDir() . "/app/Views/$relative";
+        return $this->dynamicDir() . "/app/Views/$relative";
     }
 
     public function dynamicDir(string $dir = __DIR__, int $level = 2): string
@@ -31,17 +31,42 @@ class Config
 
     public function mainFileDir(): string
     {
-        return self::dynamicDir() . '/' . WP_PLUGIN_SLUG . ".php";
+        return $this->dynamicDir() . '/' . wptConfig()->pluginSlug() . ".php";
     }
 
     public function baseFile(): string
     {
-        return self::baseFolder() . '/' . WP_PLUGIN_SLUG . ".php";
+        return $this->baseFolder() . '/' . wptConfig()->pluginSlug() . ".php";
     }
 
     public function baseFolder(): string
     {
-        $dir = explode('/', self::dynamicDir());
+        $dir = explode('/', $this->dynamicDir());
         return $dir[count($dir) - 1];
+    }
+
+    public function menuName(): string
+    {
+        return __('Plugin Template', 'wp-plugin-template');
+    }
+
+    public function pluginName(): string
+    {
+        return __('WP Plugin Template', 'wp-plugin-template');
+    }
+
+    public function pluginSlug(): string
+    {
+        return 'wp-plugin-template';
+    }
+
+    public function pluginNamespace(): string
+    {
+        return 'WPlugin';
+    }
+
+    public function pluginPrefix(): string
+    {
+        return 'wpt';
     }
 }

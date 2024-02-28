@@ -1,8 +1,8 @@
 <?php
 
-namespace WPlugin\Model\Infrastructure;
+namespace WPlugin\Infrastructure;
 
-abstract class Entity
+abstract class Model
 {
 	private \DateTime $updatedAt;
 	private \DateTime $createdAt;

@@ -3,22 +3,11 @@
 **Description:** Template for WordPress plugins
 
 ## Anchors
-- [Developer notes](#notes)
 - [Install dependencies](#install)
 - [Build dependencies](#build)
 - [Ignored folders and files](#ignore)
 - [File Tree](#tree)
 
-
-
-<h2 id="notes">Developer notes</h1>
-
-This is a template developed to facilitate the creation of plugins for the WordPress platform. It uses an adapted MVC pattern for a better development experience within the WordPress environment.
-
-The plugin uses Typescript to develop features for Javascript. This is also optional and if necessary the files can be exchanged for Javascript files.
-</br>
-**Author:** [Matheus Aguiar](https://github.com/devaguia)
-</br>
 
 <h2 id="install">Installing the dependencies</h1>
 
@@ -61,40 +50,39 @@ yarn build
 
 ```
 .
+├── LICENSE
+├── README.md
 ├── app
+│   ├── API
+│   │   ├── Routes
+│   │   │   ├── Route.php
+│   │   │   └── TestRoute.php
+│   │   └── Routes.php
 │   ├── Controllers
-│   │   ├── Entities
-│   │   │   └── Settings.php
 │   │   ├── Menus
 │   │   │   └── Settings.php
 │   │   ├── Menus.php
-│   │   ├── Notification.php
 │   │   └── Render
 │   │       ├── AbstractRender.php
 │   │       └── InterfaceRender.php
 │   ├── Core
-│   │   ├── Actions.php
+│   │   ├── Boot.php
 │   │   ├── Config.php
 │   │   ├── Export.php
 │   │   ├── Functions.php
-│   │   └── Uninstall.php
+│   │   ├── Uninstall.php
+│   │   └── Utils.php
 │   ├── Exceptions
 │   ├── Helpers
 │   │   └── Helper.php
-│   ├── index.php
-│   ├── Model
-│   │   ├── Entity
-│   │   │   └── Settings.php
-│   │   ├── Entity.php
-│   │   ├── Infrastructure
-│   │   │   ├── Bootstrap.php
-│   │   │   ├── Table.php
-│   │   │   └── Tables
-│   │   │       └── Settings.php
-│   │   ├── InterfaceRepository.php
-│   │   ├── Repository
-│   │   │   └── Settings.php
+│   ├── Infrastructure
+│   │   ├── Bootstrap.php
+│   │   ├── Model.php
 │   │   └── Repository.php
+│   ├── Model
+│   │   └── TestModel.php
+│   ├── Repository
+│   │   └── TestRepository.php
 │   ├── Services
 │   │   └── WooCommerce
 │   │       ├── Checkout
@@ -107,69 +95,43 @@ yarn build
 │   │       └── WooCommerce.php
 │   └── Views
 │       ├── Admin
-│       │   ├── notifications
-│       │   └── settings
-│       │       └── index.php
-│       └── Pages
+│       │   └── menus
+│       │       └── settings
+│       │           └── index.php
+│       ├── Pages
+│       └── WooCommerce
 ├── assets
 │   ├── images
 │   │   └── icons
 │   ├── scripts
 │   │   ├── admin
-│   │   │   ├── components
-│   │   │   │   ├── Ajax
-│   │   │   │   │   └── index.ts
-│   │   │   │   ├── Mutations
-│   │   │   │   ├── Notification
-│   │   │   │   │   └── index.ts
-│   │   │   │   └── Popup
-│   │   │   │       └── index.ts
-│   │   │   └── pages
+│   │   │   └── menus
 │   │   │       └── settings
-│   │   │           └── index.ts
-│   │   ├── global
-│   │   │   └── components
+│   │   │           └── index.js
+│   │   ├── components
 │   │   └── theme
-│   │       ├── components
-│   │       └── pages
 │   └── styles
 │       ├── admin
 │       │   ├── base
-│       │   │   ├── index.scss
-│       │   │   └── _vars.scss
+│       │   │   ├── _vars.scss
+│       │   │   └── index.scss
 │       │   ├── components
-│       │   │   ├── _container.scss
-│       │   │   └── popup
-│       │   │       └── index.scss
 │       │   ├── index.scss
-│       │   └── pages
+│       │   └── menus
 │       │       └── settings
 │       │           └── index.scss
-│       ├── global
-│       │   ├── base
-│       │   │   ├── index.scss
-│       │   │   └── _vars.scss
-│       │   ├── components
-│       │   │   └── index.scss
-│       │   └── index.scss
+│       ├── app.css
 │       └── theme
 │           ├── base
-│           │   ├── index.scss
-│           │   └── _vars.scss
 │           ├── components
-│           │   └── index.scss
 │           ├── index.scss
 │           └── pages
-│               ├── checkout
-│               │   └── index.scss
-│               └── thankyou
+│               └── home
 │                   └── index.scss
 ├── composer.json
-├── LICENSE
 ├── package.json
-├── README.md
 ├── readme.txt
-├── tsconfig.json
+├── tailwind.config.js
 └── wp-plugin-template.php
 
 ```

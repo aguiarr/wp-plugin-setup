@@ -1,17 +1,17 @@
 <?php
 
-namespace WPlugin\Model;
+namespace WPlugin\Infrastructure;
 
-use WPlugin\Model\Infrastructure\TestEntity;
+use WPlugin\Repository\TestRepository;
 
-class Bootstrap
+final class Bootstrap
 {
 	public array $tables;
 
 	public function __construct()
 	{
 		$this->tables = [
-			TestEntity::class,
+            TestRepository::class,
 		];
 	}
 

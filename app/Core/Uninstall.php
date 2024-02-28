@@ -2,7 +2,7 @@
 
 namespace WPlugin\Core;
 
-class Uninstall
+final class Uninstall
 {
     public function reset(): void
     {

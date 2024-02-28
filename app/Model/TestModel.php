@@ -1,10 +1,10 @@
 <?php
 
-namespace WPlugin\Model\Infrastructure;
+namespace WPlugin\Model;
 
-use WPlugin\Model\Infrastructure\Entity;
+use WPlugin\Infrastructure\Model;
 
-class TestEntity extends Entity
+final class TestModel extends Model
 {
 	private ?int $id = null;
 

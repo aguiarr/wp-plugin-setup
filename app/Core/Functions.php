@@ -5,16 +5,17 @@ namespace WPlugin\Core;
 use WPlugin\API\Routes;
 use WPlugin\Services\WooCommerce\WooCommerce;
 use WPlugin\Controllers\Menus;
+use WPlugin\Infrastructure\Bootstrap;
 
-class Functions
+final class Functions
 {
-    public static function initialize(): void
+    public function initialize(): void
     {
-        load_plugin_textdomain(WP_PLUGIN_SLUG, false);
+        load_plugin_textdomain(wptConfig()->pluginSlug(), false);
     }
 
 
-    public static function createAdminMenu(): void
+    public function createAdminMenu(): void
     {
         if (empty(self::getMissingDependencies())) {
             $menus = new Menus();
@@ -23,7 +24,7 @@ class Functions
     }
 
 
-    public static function woocommerce(): void
+    public function woocommerce(): void
     {
         if (class_exists('WooCommerce')) {
             $woocommerce = new WooCommerce;
@@ -32,14 +33,14 @@ class Functions
     }
 
 
-    public static function setSettingsLink(array $arr, string $name): array
+    public function setSettingsLink(array $arr, string $name): array
     {
         if ($name === wptConfig()->baseFile()) {
 
             $label = sprintf(
-                '<a href="admin.php?page=wc-plugin-template-settings" id="deactivate-wc-plugin-template" aria-label="%s">%s</a>',
-                __('Settings', 'wc-plugin-template'),
-                __('Settings', 'wc-plugin-template')
+                '<a href="admin.php?page=wp-plugin-template-settings" id="deactivate-wp-plugin-template" aria-label="%s">%s</a>',
+                __('Settings', 'wp-plugin-template'),
+                __('Settings', 'wp-plugin-template')
             );
 
             $arr['settings'] = $label;
@@ -48,15 +49,15 @@ class Functions
         return $arr;
     }
 
-    public static function activationFunction(string $plugin): void
+    public function activationFunction(string $plugin): void
     {
         if (wptConfig()->baseFile() === $plugin) {
-            $boot = new \WPlugin\Model\Bootstrap();
+            $boot = new Bootstrap;
             $boot->initialize();
         }
     }
 
-    public static function desactivationFunction(): void
+    public function desactivationFunction(): void
     {
         if (!current_user_can('activate_plugins')) {
             return;
@@ -71,7 +72,7 @@ class Functions
         }
     }
 
-    public static function checkMissingDependencies(): void
+    public function checkMissingDependencies(): void
     {
         $missingDependencies = self::getMissingDependencies();
 
@@ -82,7 +83,7 @@ class Functions
         }
     }
 
-    public static function getMissingDependencies(): array
+    public function getMissingDependencies(): array
     {
         $plugins = wp_get_active_and_valid_plugins();
 
@@ -99,14 +100,14 @@ class Functions
         return $neededs;
     }
 
-    public static function displayDependencyNotice(): void
+    public function displayDependencyNotice(): void
     {
         $class = 'notice notice-error';
-        $title = __('WordPress Plugin Template', 'wc-plugin-template');
+        $title = __('WordPress Plugin Template', 'wp-plugin-template');
 
         $message = __(
             'This plugin needs the following plugins to work properly:',
-            'wc-plugin-template'
+            'wp-plugin-template'
         );
 
         $keys = array_keys(self::getMissingDependencies());
@@ -119,7 +120,7 @@ class Functions
         );
     }
 
-    public static function registerRestAPI(): void
+    public function registerRestAPI(): void
     {
         $routes = new Routes();
         $routes->register();
