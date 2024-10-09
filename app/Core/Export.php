@@ -17,7 +17,7 @@ final class Export
         ];
     }
 
-    public function get_data(): array
+    public function getData(): array
     {
         return $this->data;
     }

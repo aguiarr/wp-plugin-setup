@@ -27,6 +27,8 @@
       "files": [
         "app/Helpers/Helper.php"
       ]
+    },
+    "require": {
+        "twig/twig": "^3.0"
     }
-  }
-  
+}

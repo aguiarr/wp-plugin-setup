@@ -9,6 +9,11 @@ final class Config
         return plugins_url() . '/' . $this->baseFolder() . "/dist/$relative";
     }
 
+    public function distDir(string $relative = ''): string
+    {
+        return $this->dynamicDir() . "/dist/$relative";
+    }
+
     public function imageUrl(string $relative = ''): string
     {
         return plugins_url() . '/' . $this->baseFolder() . "/assets/images/$relative";
@@ -68,5 +73,10 @@ final class Config
     public function pluginPrefix(): string
     {
         return 'wpt';
+    }
+
+    public function pluginVersion(): string
+    {
+        return '1.0.0';
     }
 }

@@ -18,7 +18,9 @@ final class Settings extends AbstractRender
     {
         $this->enqueue();
 
-        $this->fields = [];
+        $this->fields = [
+            'teste' => 'Teste Titulo'
+        ];
         echo $this->render('Admin/menus/settings/index.php', $this->fields);
     }
 }

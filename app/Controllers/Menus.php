@@ -2,83 +2,71 @@
 
 namespace WPlugin\Controllers;
 
-final class Menus {
-    
-    private function defineMenus(): array
+final class Menus implements InterfaceController
+{
+    private array $menus;
+
+    public function initialize(): void
     {
-        return [
-            ['Settings', __('About me', 'wp-plugin-template')]
+        add_action('admin_menu', [$this, 'registerMenus']);
+
+        $this->menus = [
+            'Settings' => __('About me', 'wp-plugin-template')
         ];
     }
 
-    public function initializeMenus(): void
+    public function registerMenus(): void
     {
-        $controllers = $this->defineMenus();
-        $menus = [];
+        $menus = array_map(function ($controller, $key) {
+            $slug = $this->getMenuSlug($key);
+            $class = wptConfig()->pluginNamespace() . "\\Controllers\\Menus\\{$key}";
 
-        foreach ($controllers as $key => $controller) {
-
-            $slug     = $this->getMenuSlug($controller[0]);
-            $function = wptConfig()->pluginNamespace() . "\\Controllers\\Menus\\$controller[0]";
-            $menu     = [
-                'title'    => $controller[1],
-                'slug'     => 'wp-plugin-template-' . $slug,
-                'function' => [new $function, 'request'],
-                'position' => $key
-            ];
-
-            array_push($menus, $menu);
-        }
+            if (class_exists($class)) {
+                return [
+                    'title'    => $controller,
+                    'slug'     => 'wp-plugin-template-' . $slug,
+                    'function' => [new $class, 'request']
+                ];
+            }
+        }, $this->menus, array_keys($this->menus));
 
         $this->createMenus($menus);
     }
 
-    public function getMenuSlug(string $controller): string
+    private function getMenuSlug(string $controller): string
     {
-        $split = str_split($controller);
-        $slug = '';
-        $count = 0;
-
-        foreach ($split as $letter) {
-            if (ctype_upper($letter)) {
-                if ($count == 0) {
-                    $slug .= strtolower($letter);
-                } else {
-                    $slug .= '_' . strtolower($letter);
-                }
-            } else {
-                $slug .= $letter;
-            }
-            $count++;
-        }
-
-        return $slug;
+        return strtolower(preg_replace_callback('/[A-Z]/', function ($matches) {
+            return '_' . strtolower($matches[0]);
+        }, lcfirst($controller)));
     }
 
     private function createMenus(array $menus): void
     {
+        $config = wptConfig();
+        $menuName = $config->menuName();
+        $pluginSlug = $config->pluginSlug();
+
         add_menu_page(
-            wptConfig()->menuName(),
-            wptConfig()->menuName(),
+            $menuName,
+            $menuName,
             'read',
-            wptConfig()->pluginSlug(),
+            $pluginSlug,
             false,
             'dashicons-carrot'
         );
-        
-        foreach ( $menus as $menu ) {
+
+        foreach ($menus as $menu) {
             add_submenu_page(
-                wptConfig()->pluginSlug() ,
+                $pluginSlug,
                 $menu['title'],
                 $menu['title'],
                 'manage_options',
                 $menu['slug'],
-                $menu['function'],
-                $menu['position']
+                $menu['function']
             );
         }
 
         // Remove default submenu
-        remove_submenu_page(wptConfig()->pluginSlug() ,wptConfig()->pluginSlug());
+        remove_submenu_page($pluginSlug, $pluginSlug);
     }
 }

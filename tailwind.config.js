@@ -1,8 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./assets/**/*.js",
-    "./app/Views/**/**/*.php",
+    "./app/Views/Admin/components/*.twig",
+    "./app/Views/Admin/menus/**/*.twig",
   ],
   darkMode: 'class',
   theme: {

@@ -22,13 +22,6 @@ abstract class AbstractRender implements InterfaceRender
     private function enqueueDefault(): void
     {
         if ($this->hasEnqueue) {
-            $this->enqueueStyles(
-                [
-                    'name' => 'fontawesome',
-                    'external' => 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css'
-                ]
-            );
-
             $this->enqueueStyles(['name' => 'tailwind', 'file' => 'app.css']);
         }
     }

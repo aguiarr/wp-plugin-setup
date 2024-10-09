@@ -1,12 +1,20 @@
 <?php
 
 namespace WPlugin\API;
-use WPlugin\API\Routes\TestRoute;
 
 final class Routes
 {
 	public function register()
 	{
-		new TestRoute();
+		$routes = ['Test'];
+
+		foreach ($routes as $route) {
+            $namespace = wptConfig()->pluginNamespace() . "\\API\\Routes\\$route";
+
+			if (class_exists($namespace)) {
+				$class = new $namespace;
+				$class->initialize();
+			}
+		}
 	}
 }
