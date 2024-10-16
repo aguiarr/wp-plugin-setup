@@ -22,13 +22,10 @@
     ],
     "autoload": {
       "psr-4": {
-        "WPlugin\\": "app/"
+        "WPlugin\\": "src/"
       },
       "files": [
-        "app/Helpers/Helper.php"
+        "src/WordPress/Helpers/Helper.php"
       ]
-    },
-    "require": {
-        "twig/twig": "^3.0"
     }
 }

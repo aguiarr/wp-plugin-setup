@@ -1,8 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./app/Views/Admin/components/*.twig",
-    "./app/Views/Admin/menus/**/*.twig",
+    "./assets/react/**/**/*.tsx",
+    "./src/WordPress/Views/**/**/**/*.php",
   ],
   darkMode: 'class',
   theme: {
@@ -10,4 +10,3 @@ module.exports = {
   },
   plugins: [],
 }
-

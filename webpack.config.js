@@ -1,52 +1,28 @@
 const defaultConfig = require('@wordpress/scripts/config/webpack.config');
-const WooCommerceDependencyExtractionWebpackPlugin = require('@woocommerce/dependency-extraction-webpack-plugin');
 const path = require('path');
+const fs = require('fs');
 
-const wcDepMap = {
-    '@woocommerce/blocks-registry': ['wc', 'wcBlocksRegistry'],
-    '@woocommerce/settings'       : ['wc', 'wcSettings']
-};
+const blocksDir = path.resolve(__dirname, 'assets/react/pages');
 
-const wcHandleMap = {
-    '@woocommerce/blocks-registry': 'wc-blocks-registry',
-    '@woocommerce/settings'       : 'wc-settings'
-};
+const getDirectories = source =>
+    fs.readdirSync(source, { withFileTypes: true })
+      .filter(dirent => dirent.isDirectory())
+      .map(dirent => dirent.name);
 
-const requestToExternal = (request) => {
-    if (wcDepMap[request]) {
-        return wcDepMap[request];
-    }
-};
+const entries = getDirectories(blocksDir).reduce((acc, folder) => {
+    const blockPath = path.resolve(blocksDir, folder, 'index.tsx');
+    acc[`${folder}`] = blockPath;
+    return acc;
+}, {});
 
-const requestToHandle = (request) => {
-    if (wcHandleMap[request]) {
-        return wcHandleMap[request];
-    }
-};
-
-// Export configuration.
 module.exports = {
     ...defaultConfig,
-    entry: {
-        'pix': '/assets/blocks/gateways/pix/index.jsx',
-        'credit': '/assets/blocks/gateways/credit/index.jsx',
-        'billet': '/assets/blocks/gateways/billet/index.jsx',
-        'bolepix': '/assets/blocks/gateways/bolepix/index.jsx',
-        'transfer': '/assets/blocks/gateways/transfer/index.jsx',
-        'person-type': '/assets/blocks/components/PersonType/index.jsx',
-    },
+    entry: entries,
     output: {
-        path: path.resolve( __dirname, 'dist/blocks' ),
-        filename: '[name]/index.js',
+        path: path.resolve(__dirname, 'dist/react/pages/'),
+        filename: ({ chunk }) => {
+            const folderName = chunk.name;
+            return `${folderName}/index.js`;
+        },
     },
-    plugins: [
-        ...defaultConfig.plugins.filter(
-            (plugin) =>
-                plugin.constructor.name !== 'DependencyExtractionWebpackPlugin'
-        ),
-        new WooCommerceDependencyExtractionWebpackPlugin({
-            requestToExternal,
-            requestToHandle
-        })
-    ]
 };

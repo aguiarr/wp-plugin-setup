@@ -18,6 +18,7 @@
  * @package WPlugin
  */
 
+
 if (!defined('ABSPATH')) {
     exit;
 }
@@ -40,4 +41,5 @@ if (version_compare(phpversion(), '7.4') < 0) {
     );
 }
 
-new WPlugin\Core\Boot;
+$boot = new WPlugin\WordPress\Core\Boot;
+$boot->initialize();
