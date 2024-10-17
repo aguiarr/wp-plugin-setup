@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace WPlugin\WordPress\Services;
 
-use WPlugin\WordPress\Domains\Routes\Example;
+use WPlugin\WordPress\Domains\Routes\Example\ExampleRoute;
 
 final class Routes implements InterfaceService
 {
@@ -16,7 +16,7 @@ final class Routes implements InterfaceService
     public function registerDomains(): void
     {
         $routes = [
-            Example::class
+            ExampleRoute::class
         ];
 
 		foreach ($routes as $route) {
